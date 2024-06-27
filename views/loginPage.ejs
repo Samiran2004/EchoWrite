@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoWrite-Login</title>
+    <link rel="stylesheet" href="/signupPage.css">
+</head>
+
+<body>
+    <div id="main">
+        <h1 id="title">Log-In</h1>
+        <div id="mainBody">
+            <h3>LOG IN TO OUR</h3>
+            <h1>ECHOWRITE</h1>
+
+            <div id="inputSection">
+                <form action="/user/login" method="post" enctype="multipart/form-data">
+                    <p>ENTER YOUR ACCOUNT DETIALS</p>
+                    <input type="email" name="email" id="email" placeholder="Email">
+
+                    <input type="password" name="password" id="password" placeholder="Password">
+
+                    <button type="submit">Log-In</button>
+
+                    <p id="dontAcc">Don't have an account? <a href="/signup">Sign up</a></p>
+
+                    <a href="/forgotpassword">Forgot your password?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
