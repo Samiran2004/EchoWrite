@@ -3,6 +3,7 @@ const {
     loginUser,
     signin
 } = require('../Controllers/userController');
+const uploader = require('../Middlewares/multerMiddleware');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -18,5 +19,5 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/user/login', loginUser);
-router.post('/user/signup', signin);
+router.post('/user/signup', uploader.single("profileimage"), signin);
 module.exports = router;

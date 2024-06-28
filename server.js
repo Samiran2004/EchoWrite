@@ -15,10 +15,8 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 //Middlewares...
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static(path.resolve('./Public')));
 
 app.use('/', serveRoute);

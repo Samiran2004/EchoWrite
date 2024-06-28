@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#mainContainer{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://fileserver.teachstarter.com/thumbnails/30788-old-paper-scroll-page-border-gb-thumbnail-0-1200x628.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#mainContainer h1{
+    position: absolute;
+    top: 40%;
+    left: 24%;
+    font-size: 2.3rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#goBackContainer{
+    position: absolute;
+    top: 70%;
+    left: 35%;
+    border: 2px solid gray;
+    border-radius: 5px;
+    width: 6.2rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+}
+#goBackContainer a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
