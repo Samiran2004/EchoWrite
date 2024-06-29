@@ -23,7 +23,7 @@ async function loginUser(req, res) {
                     profileimage: checkUser.profileImage
                 }
                 const token = JWT.sign(payload, process.env.JWT_SECRET, { expiresIn: '15m' });
-                res.cookie('usertoken',token).redirect('/');
+                res.cookie('usertoken',token).render('homePage');
 
             } else {
                 res.render('errorPage', { errorMessage: "Email or Password Invalid", backUrl: "/login" });
