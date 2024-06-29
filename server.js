@@ -4,8 +4,11 @@ const path = require('path');
 const mongoose = require('mongoose');
 const serveRoute = require('./Routes/serveRoute');
 const dbConnect = require('./Services/dbConnection');
+const cookieParser = require('cookie-parser');
 const app = express();
 require('dotenv').config();
+
+app.use(cookieParser());
 
 //Connect with Database...
 dbConnect(process.env.DB_URI);

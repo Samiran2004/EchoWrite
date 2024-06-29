@@ -4,9 +4,10 @@ const {
     signin
 } = require('../Controllers/userController');
 const uploader = require('../Middlewares/multerMiddleware');
+const userAuth = require('../Middlewares/userAuthenticationMiddleware');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', userAuth('usertoken'), (req, res) => {
     res.render('homePage');
 });
 

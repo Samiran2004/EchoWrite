@@ -6,11 +6,32 @@ const fs = require('fs');
 const sendMail = require('../Services/mailService');
 
 //Login user...
-async function loginUser(req, res, next) {
-    console.log(req.body);
-    res.status(200).send({
-        message: "Login successful",
-    });
+async function loginUser(req, res) {
+    const { email, password } = req.body;
+    try {
+        if (!email || !password) {
+            res.render('errorPage', { errorMessage: "All feilds are required", backUrl: "/login" });
+        } else {
+            //Check email...
+            const checkUser = await User.findOne({ email: email });
+            if (checkUser) {
+                const isValidPassword = await bcrypt.compare(password, checkUser.password);
+                const payload = {
+                    _id: checkUser._id,
+                    username: checkUser.name,
+                    email: checkUser.email,
+                    profileimage: checkUser.profileImage
+                }
+                const token = JWT.sign(payload, process.env.JWT_SECRET, { expiresIn: '15m' });
+                res.cookie('usertoken',token).redirect('/');
+
+            } else {
+                res.render('errorPage', { errorMessage: "Email or Password Invalid", backUrl: "/login" });
+            }
+        }
+    } catch (error) {
+        res.render('errorPage', { errorMessage: "Internal Server Error", backUrl: "/login" });
+    }
 }
 
 //Signin a new user...
@@ -105,7 +126,6 @@ const signin = async (req, res, next) => {
         <div class="container">
             <div class="content">
                 <h1>Welcome to EchoWrite!</h1>
-                <p>Dear ${name},</p>
                 <p>Dear ${name},</p>
 <p>Thank you for signing up for EchoWrite. We are excited to have you on board.</p>
 <p>EchoWrite is a powerful tool designed to help you create and manage your written content with ease.</p>
