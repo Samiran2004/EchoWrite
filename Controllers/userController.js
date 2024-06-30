@@ -16,14 +16,18 @@ async function loginUser(req, res) {
             const checkUser = await User.findOne({ email: email });
             if (checkUser) {
                 const isValidPassword = await bcrypt.compare(password, checkUser.password);
-                const payload = {
-                    _id: checkUser._id,
-                    username: checkUser.name,
-                    email: checkUser.email,
-                    profileimage: checkUser.profileImage
+                if (isValidPassword) {
+                    const payload = {
+                        _id: checkUser._id,
+                        username: checkUser.name,
+                        email: checkUser.email,
+                        profileimage: checkUser.profileImage
+                    }
+                    const token = JWT.sign(payload, process.env.JWT_SECRET, { expiresIn: '15m' });
+                    res.cookie('usertoken', token).redirect('/');
+                } else {
+                    res.render('errorPage', { errorMessage: "Email or Password Invalid", backUrl: "/login" });
                 }
-                const token = JWT.sign(payload, process.env.JWT_SECRET, { expiresIn: '15m' });
-                res.cookie('usertoken',token).redirect('/');
 
             } else {
                 res.render('errorPage', { errorMessage: "Email or Password Invalid", backUrl: "/login" });
@@ -160,7 +164,137 @@ const signin = async (req, res, next) => {
     }
 }
 
+//Forgot password...
+const forgotPassword = async (req, res) => {
+    const { email } = req.body;
+    try {
+        if (!email) {
+            return res.render('errorPage', { errorMessage: "Email is required", backUrl: "/forgotpassword" });
+        }
+        // Check if email is present in the database
+        const checkUser = await User.findOne({ email: email });
+        if (checkUser) {
+            const payload = {
+                email: email
+            }
+            const resetPasswordToken = JWT.sign(payload, process.env.JWT_SECRET, { expiresIn: '5m' });
+            const link = `http://localhost:8000/resetpassword/${resetPasswordToken}`;
+            const emailData = {
+                to: email,
+                subject: "Reset Password",
+                html: `
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Reset Your Password</title>
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                background-color: #f4f4f4;
+                                margin: 0;
+                                padding: 0;
+                            }
+                            .container {
+                                width: 100%;
+                                padding: 20px;
+                                background-color: #f4f4f4;
+                            }
+                            .content {
+                                max-width: 600px;
+                                margin: 0 auto;
+                                background-color: #ffffff;
+                                padding: 20px;
+                                border-radius: 8px;
+                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                            }
+                            h1 {
+                                color: #333333;
+                            }
+                            p {
+                                color: #666666;
+                            }
+                            .button {
+                                display: inline-block;
+                                padding: 10px 20px;
+                                margin-top: 20px;
+                                background-color: #007BFF;
+                                color: #ffffff;
+                                text-decoration: none;
+                                border-radius: 5px;
+                            }
+                            .footer {
+                                text-align: center;
+                                margin-top: 20px;
+                                color: #999999;
+                                font-size: 12px;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="container">
+                            <div class="content">
+                                <h1>Reset Your Password</h1>
+                                <p>Dear ${checkUser.name},</p>
+                                <p>Please click the link below to reset your password:</p>
+                                <p><a href="${link}" class="button">Reset Password</a></p>
+                                <p>Best regards,</p>
+                                <p>The EchoWrite Team</p>
+                                <a href="https://echowrite.onrender.com" class="button">Visit EchoWrite</a>
+                                <div class="footer">
+                                    <p>&copy; 2024 EchoWrite. All rights reserved.</p>
+                                    <p>123 EchoWrite Street, Suite 100, WriteCity, WC 12345</p>
+                                </div>
+                            </div>
+                        </div>
+                    </body>
+                    </html>`
+            };
+            await User.findByIdAndUpdate(checkUser._id, { resetPasswordToken: resetPasswordToken });
+            await (sendMail(emailData, (error, response) => {
+                if (error) {
+                    res.render('errorPage', { errorMessage: "Mail sending Error" });
+                } else {
+                    // res.render("checkYourmailPage", { mailName: email });
+                    res.redirect('/checkMail');
+                }
+            }));
+        } else {
+            res.render('errorPage', { errorMessage: "Email is not registered", backUrl: '/forgotpassword' });
+        }
+    } catch (error) {
+        res.render('errorPage', { errorMessage: "Internal Server Error", backUrl: "/login" });
+    }
+};
+
+//Show Reset password Page...
+const showResetPasswordPage = async (req, res) => {
+    const { token } = req.params;
+    try {
+        if (!token) {
+            res.render('errorPage', { errorMessage: "Token not found", backUrl: '/login' });
+        } else {
+            const verifyToken = JWT.verify(token, process.env.JWT_SECRET);
+            if (verifyToken) {
+                const checkUser = await User.findOne({ email: verifyToken.email });
+                if (checkUser) {
+                    res.render('setNewPasswordPage');
+                } else {
+                    res.render('errorPage', { errorMessage: "Something Went Wrong", backUrl: '/login' });
+                }
+            } else {
+                res.render('errorPage', { errorMessage: "Token is not valid", backUrl: '/login' });
+            }
+        }
+    } catch (error) {
+        res.render('errorPage', { errorMessage: "Internal Server Error", backUrl: "/login" });
+    }
+}
+
 module.exports = {
     loginUser,
-    signin
+    signin,
+    forgotPassword,
+    showResetPasswordPage
 }

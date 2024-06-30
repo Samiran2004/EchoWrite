@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(https://www.validity.com/wp-content/uploads/2018/09/Blog-List-Hygiene-Cleaning.png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#mainContainer{
+    /* border: 2px solid gray; */
+    padding: 10px;
+    width: 35%;
+    line-height: 40px;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#mainContainer img{
+    border-radius: 50%;
+    width: 5rem;
+}
+#mainContainer p{
+    color: black;
+}
+h4{
+    color: red;
+}
+#buttonContainer{
+    border: 2px solid white;
+    width: 5rem;
+    text-align: center;
+    background-color: black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#buttonContainer a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
