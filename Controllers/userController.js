@@ -178,7 +178,8 @@ const forgotPassword = async (req, res) => {
                 email: email
             }
             const resetPasswordToken = JWT.sign(payload, process.env.JWT_SECRET, { expiresIn: '5m' });
-            const link = `https://echowrite.onrender.com/resetpassword/${resetPasswordToken}`;
+            // const link = `https://echowrite.onrender.com/resetpassword/${resetPasswordToken}`;
+            const link = `http://localhost:8000/resetpassword/${resetPasswordToken}`;
             const emailData = {
                 to: email,
                 subject: "Reset Password",
@@ -275,11 +276,15 @@ const showResetPasswordPage = async (req, res) => {
         if (!token) {
             res.render('errorPage', { errorMessage: "Token not found", backUrl: '/login' });
         } else {
-            const verifyToken = JWT.verify(token, process.env.JWT_SECRET);
+            const verifyToken = JWT.verify(token, process.env.JWT_SECRET, { expiresIn: '2m' });
             if (verifyToken) {
                 const checkUser = await User.findOne({ email: verifyToken.email });
                 if (checkUser) {
-                    res.render('setNewPasswordPage');
+                    const payload = {
+                        email: checkUser.email
+                    }
+                    const resetPassToken = JWT.sign(payload, process.env.JWT_SECRET);
+                    res.cookie("resetPassToken", resetPassToken).render('setNewPasswordPage');
                 } else {
                     res.render('errorPage', { errorMessage: "Something Went Wrong", backUrl: '/login' });
                 }
@@ -292,9 +297,32 @@ const showResetPasswordPage = async (req, res) => {
     }
 }
 
+//Update Password...
+const updatePassword = async (req, res) => {
+    const { password } = req.body;
+    const { resetPassToken } = req.cookies;
+    try {
+        if (!password || !resetPassToken) {
+            res.render('errorPage', { errorMessage: "Token not found", backUrl: '/login' });
+        } else {
+            const verifyToken = JWT.verify(resetPassToken, process.env.JWT_SECRET);
+            if (verifyToken) {
+                const hashedPassword = await bcrypt.hash(password, 10);
+                await User.findOneAndUpdate({ email: verifyToken.email }, { password: hashedPassword });
+                res.clearCookie("resetPassToken").redirect('/login');
+            } else {
+                res.render('errorPage', { errorMessage: "Token is not verified", backUrl: '/login' });
+            }
+        }
+    } catch (error) {
+        res.render('errorPage', { errorMessage: "Internal Server Error", backUrl: '/login' });
+    }
+}
+
 module.exports = {
     loginUser,
     signin,
     forgotPassword,
-    showResetPasswordPage
+    showResetPasswordPage,
+    updatePassword
 }

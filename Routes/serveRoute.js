@@ -3,7 +3,8 @@ const {
     loginUser,
     signin,
     forgotPassword,
-    showResetPasswordPage
+    showResetPasswordPage,
+    updatePassword
 } = require('../Controllers/userController');
 const uploader = require('../Middlewares/multerMiddleware');
 const userAuth = require('../Middlewares/userAuthenticationMiddleware');
@@ -34,4 +35,5 @@ router.get('/resetpassword/:token',showResetPasswordPage);
 router.post('/user/login', loginUser);
 router.post('/user/signup', uploader.single("profileimage"), signin);
 router.post('/user/forgotPassword', forgotPassword);
+router.post('/updatePassword',updatePassword);
 module.exports = router;
