@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#mainContainer{
+    display: flex;
+    
+    flex-direction: column;
+    /* border: 2px solid red; */
+    height: 80vh;
+}
+
+#profileImageContainer{
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    object-fit: cover;
+}
+
+#profileImage{
+    width: 30%;
+    border-radius: 50px;
+}
+
+#userContent{
+    /* border: 2px solid green; */
+    text-align: center;
+    padding: 20px;
+}
+#username{
+    font-size: 5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#totalCount{
+    display: flex;
+    align-items: center;
+}

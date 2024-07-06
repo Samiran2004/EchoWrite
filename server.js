@@ -5,7 +5,10 @@ const mongoose = require('mongoose');
 const serveRoute = require('./Routes/serveRoute');
 const dbConnect = require('./Services/dbConnection');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const app = express();
+
+app.use(cors());
 require('dotenv').config();
 
 app.use(cookieParser());

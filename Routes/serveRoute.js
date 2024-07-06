@@ -8,6 +8,8 @@ const {
 } = require('../Controllers/userController');
 const uploader = require('../Middlewares/multerMiddleware');
 const userAuth = require('../Middlewares/userAuthenticationMiddleware');
+const customerSupport = require('../Controllers/customerSupportController');
+const getProfileInformation = require('../Controllers/profileController');
 const router = express.Router();
 
 router.get('/', userAuth('usertoken'), (req, res) => {
@@ -37,7 +39,11 @@ router.post('/user/signup', uploader.single("profileimage"), signin);
 router.post('/user/forgotPassword', forgotPassword);
 router.post('/updatePassword', updatePassword);
 
-router.get('/user/customersupport', userAuth('usertoken'), (req, res) => res.render('supportpage'));
 router.get('/user/post', userAuth('usertoken'), (req, res) => res.render('postPage'));
 router.get('/user/profile', userAuth('usertoken'), (req, res) => res.render('profilePage'));
+router.get('/user/profileinfo/:token', getProfileInformation);
+// router.get('/user/profileinfo', getProfileInformation);
+router.get('/user/customersupport', userAuth('usertoken'), (req, res) => res.render('supportpage'));
+
+router.post('/user/support', customerSupport);
 module.exports = router;

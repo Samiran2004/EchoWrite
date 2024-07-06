@@ -6,9 +6,26 @@
     <link rel="icon" href="Logo.jpg" type="image/x-icon">
     <title>Profile</title>
     <link rel="stylesheet" href="/Nav.css">
+    <link rel="stylesheet" href="/profile.css">
 </head>
 <body>
     <%- include('./partials/NavBar') %>
-    <h1>Profile</h1>
+    <div id="mainContainer">
+        <div id="profileImageContainer">
+            <img id="profileImage" src="" alt="Reload">
+        </div>
+        <div id="userContent">
+            <h1 id="username"></h1>
+            <h3 id="useremail"></h3>
+        </div>
+
+        <div id="userPostContainer">
+            <div id="totalCount">
+                <p>Total Post:</p>
+            <h2 id="postCount"></h2>
+            </div>
+        </div>
+    </div>
+    <script src="/profile.js"></script>
 </body>
 </html>
