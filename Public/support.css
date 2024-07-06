@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-bg-color: black;
+    --main-font-color: orange;
+    --border-color: gray;
+    --input-bg-color: white;
+    --input-border-color: gray;
+    --button-bg-color: var(--main-font-color);
+    --button-font-color: black;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    color: var(--main-font-color);
+}
+
+#mainContainerSupport{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Customercontent {
+    border: 2px solid var(--border-color);
+    height: 80%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+#text h1 {
+    color: var(--main-font-color);
+    margin-bottom: 20px;
+}
+
+#formcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    background-color: var(--input-bg-color);
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button-bg-color);
+    color: var(--button-font-color);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: darkorange;
+}

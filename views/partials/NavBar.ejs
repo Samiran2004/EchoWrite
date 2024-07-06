@@ -7,26 +7,28 @@
     <div id="content">
         <div id="homeCont" class="cont">
             <img src="https://img.icons8.com/?size=100&id=86527&format=png&color=000000" alt="Reload">
-            <a href="#">Home</a>
+            <a href="/">Home</a>
         </div>
         <div id="postCont" class="cont">
             <img src="https://img.icons8.com/?size=100&id=18613&format=png&color=000000" alt="Reload">
-            <a href="#">Post</a>
+            <a href="/user/post">Post</a>
         </div>
         <div id="profileCont" class="cont">
             <img src="https://img.icons8.com/?size=100&id=52883&format=png&color=000000" alt="Reload">
-            <a href="#">Profile</a>
+            <a href="/user/profile">Profile</a>
         </div>
         <div id="customerSupCont" class="cont">
             <img src="https://img.icons8.com/?size=100&id=7731&format=png&color=000000" alt="Reload">
-            <a href="#">Customer Support</a>
+            <a href="/user/customersupport">Customer Support</a>
         </div>
     </div>
 
     <% if(locals.user) { %>
         <div id="userDetsContainer">
-            <p><%= user.username %></p>
-            <img src="<%=locals.user.profileimage%>" alt="Reload">
+            <p>
+                <%= user.username %>
+            </p>
+            <img src="<%=user.profileimage%>" alt="Reload">
         </div>
-    <% } %>
+        <% } %>
 </nav>

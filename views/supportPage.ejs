@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer-Support</title>
+    <link rel="stylesheet" href="/Nav.css">
+    <link rel="stylesheet" href="/support.css">
+</head>
+<body>
+    <%- include('./partials/NavBar') %>
+    <div id="mainContainerSupport">
+        <div id="Customercontent">
+            <div id="text">
+                 <h1>CUSTOMER-SUPPORT</h1>
+            </div>
+     
+            <div id="formcontainer">
+                 <form action="/user/support" method="post">
+                     <input type="text" name="username" id="username" placeholder="Your Name">
+                     <input type="email" name="email" id="email" placeholder="Your Email">
+                     <input type="text" name="message" id="message" placeholder="Message">
+                     <button type="submit">Submit</button>
+                 </form>
+            </div>
+         </div>
+    </div>
+</body>
+</html>

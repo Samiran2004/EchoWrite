@@ -30,10 +30,14 @@ router.get('/checkMail', (req, res) => {
     res.render('checkYourMailPage', { mailName: req.body.email });
 });
 
-router.get('/resetpassword/:token',showResetPasswordPage);
+router.get('/resetpassword/:token', showResetPasswordPage);
 
 router.post('/user/login', loginUser);
 router.post('/user/signup', uploader.single("profileimage"), signin);
 router.post('/user/forgotPassword', forgotPassword);
-router.post('/updatePassword',updatePassword);
+router.post('/updatePassword', updatePassword);
+
+router.get('/user/customersupport', userAuth('usertoken'), (req, res) => res.render('supportpage'));
+router.get('/user/post', userAuth('usertoken'), (req, res) => res.render('postPage'));
+router.get('/user/profile', userAuth('usertoken'), (req, res) => res.render('profilePage'));
 module.exports = router;

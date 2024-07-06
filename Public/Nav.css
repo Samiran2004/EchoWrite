@@ -14,6 +14,7 @@ nav{
     justify-content: space-evenly;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(137, 137, 249);
+    position: sticky;
 }
 
 #logo{
