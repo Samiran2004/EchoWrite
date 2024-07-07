@@ -44,7 +44,7 @@ router.get('/user/post', userAuth('usertoken'), (req, res) => res.render('postPa
 router.get('/user/profile', userAuth('usertoken'), (req, res) => res.render('profilePage'));
 router.get('/user/profileinfo/:token', getProfileInformation);
 // router.get('/user/profileinfo', getProfileInformation);
-router.get('/user/customersupport', userAuth('usertoken'), (req, res) => res.render('supportpage'));
+router.get('/user/customersupport', userAuth('usertoken'), (req, res) => res.render('supportPage'));
 
 router.post('/user/support', customerSupport);
 router.post('/user/post', uploader.single('postimage'), uploadPost);
