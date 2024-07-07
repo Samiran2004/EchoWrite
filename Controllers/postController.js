@@ -19,9 +19,10 @@ const uploadPost = async (req, res) => {
                     {
                         title: title,
                         content: content,
-                        author: checkUser._id,
+                        authorId: checkUser._id,
                         categories: categorieArr,
-                        postImage: postImageUrl.url
+                        postImage: postImageUrl.url,
+                        authorName: checkUser.name
                     }
                 );
                 res.redirect('/');

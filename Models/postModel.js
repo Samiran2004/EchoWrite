@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
-    postImage:{
-        type:String
+    postImage: {
+        type: String
     },
     title: {
         type: String,
@@ -12,9 +12,13 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    author: {
+    authorId: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
+        required: true
+    },
+    authorName: {
+        type: String,
         required: true
     },
     publishdate: {
