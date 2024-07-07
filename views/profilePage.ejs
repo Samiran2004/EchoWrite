@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +9,73 @@
     <link rel="stylesheet" href="/Nav.css">
     <link rel="stylesheet" href="/profile.css">
 </head>
+
 <body>
     <%- include('./partials/NavBar') %>
-    <div id="mainContainer">
-        <div id="profileImageContainer">
-            <img id="profileImage" src="" alt="Reload">
-        </div>
-        <div id="userContent">
-            <h1 id="username"></h1>
-            <h3 id="useremail"></h3>
-        </div>
-
-        <div id="userPostContainer">
-            <div id="totalCount">
-                <p>Total Post:</p>
-            <h2 id="postCount"></h2>
+        <div id="mainContainer">
+            <div id="profileImageContainer">
+                <img id="profileImage" src="" alt="Reload">
             </div>
-        </div>
-    </div>
-    <script src="/profile.js"></script>
+            <div id="userContent">
+                <h1 id="username"></h1>
+                <h3 id="useremail"></h3>
+            </div>
+
+            <div id="userPostContainer">
+                <div id="totalCount">
+                    <p>Total Post:</p>
+                    <h2 id="postCount"></h2>
+                </div>
+
+                <div id="postCardContainers">
+                    <div class="postCard">
+                        <div class="postImage">
+                            <img src="https://pf-media.co.uk/wp-content/uploads/2020/05/New-normal-new-thinking_696x464_A_B.jpg"
+                                alt="Reload">
+                        </div>
+
+                        <div class="title">
+                            <h4 class="postDate">Date</h4>
+                            <h2 class="titleTxt">Title</h2>
+                        </div>
+                    </div>
+
+                    <div class="postCard">
+                        <div class="postImage">
+                            <img src="https://pf-media.co.uk/wp-content/uploads/2020/05/New-normal-new-thinking_696x464_A_B.jpg"
+                                alt="Reload">
+                        </div>
+
+                        <div class="title">
+                            <h4 class="postDate">Date</h4>
+                            <h2 class="titleTxt">Title</h2>
+                        </div>
+                    </div>
+
+                    <div class="postCard">
+                        <div class="postImage">
+                            <img src="https://pf-media.co.uk/wp-content/uploads/2020/05/New-normal-new-thinking_696x464_A_B.jpg"
+                                alt="Reload">
+                        </div>
+
+                        <div class="title">
+                            <h4 class="postDate">Date</h4>
+                            <h2 class="titleTxt">Title</h2>
+                        </div>
+                    </div>
+
+                    <div class="postCard">
+                        <div class="postImage">
+                            <img src="https://pf-media.co.uk/wp-content/uploads/2020/05/New-normal-new-thinking_696x464_A_B.jpg"
+                                alt="Reload">
+                        </div>
+
+                        <div class="title">
+                            <h4 class="postDate">Date</h4>
+                            <h2 class="titleTxt">Title</h2>
+                        </div>
+                    </div>
+                    <script src="/profile.js"></script>
 </body>
+
 </html>

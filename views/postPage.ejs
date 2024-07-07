@@ -6,9 +6,25 @@
     <link rel="icon" href="Logo.jpg" type="image/x-icon">
     <title>Post</title>
     <link rel="stylesheet" href="/Nav.css">
+    <link rel="stylesheet" href="/postPage.css">
 </head>
 <body>
     <%- include('./partials/NavBar') %>
-    <h1>Post</h1>
+    <div id="mainContainer">
+        <div id="prevImageContainer">
+            <img id="prevImage" src="">
+        </div>
+        <div id="formContainer">
+            <form action="/user/post" method="post" enctype="multipart/form-data">
+                <input type="file" name="postimage" id="postimage" required>
+                <input type="text" name="title" id="title" placeholder="Title">
+                <input type="text" name="categories" id="title" placeholder="Categories">
+                <textarea name="content" id="content" placeholder="Content"></textarea>
+
+                <button type="submit">Post</button>
+            </form>
+        </div>
+    </div>
 </body>
+<script src="/postPage.js"></script>
 </html>

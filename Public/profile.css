@@ -17,12 +17,14 @@
     display: flex;
     justify-content: center;
     height: 50%;
-    object-fit: cover;
 }
 
 #profileImage{
-    width: 30%;
-    border-radius: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 10px 10px 20px gray;
 }
 
 #userContent{
@@ -38,4 +40,70 @@
 #totalCount{
     display: flex;
     align-items: center;
+}
+#totalCount p{
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+#totalCount h2{
+    font-size: 2rem;
+    padding-left: 1rem;
+}
+
+/* #postCardContainers{
+    border: 2px solid red;
+    display: flex;
+}
+#postCard{
+    border: 2px solid black;
+    width: 500px;
+    height: 200px;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#postImage img{
+    width: 200px;
+    border-radius: 10px;
+}
+#title{
+    border: 2px solid red;
+    height: 100%;
+    width: 50%;
+} */
+
+#postCardContainers {
+    border-top: 2px solid gray;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.postCard {
+    border: 2px solid black;
+    width: 90%;
+    height: 200px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+}
+
+.postImage img {
+    width: 200px;
+    border-radius: 10px;
+}
+
+.title {
+    /* border: 2px solid red; */
+    padding: 20px;
+    height: 100%;
+    width: 50%;
 }
