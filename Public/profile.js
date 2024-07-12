@@ -12,7 +12,6 @@ const getUserdata = async () => {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         const data = await response.json();
-        console.log(data);
 
         document.querySelector('#username').innerText = data.userdata.name;
         document.querySelector('#useremail').innerText = data.userdata.email;

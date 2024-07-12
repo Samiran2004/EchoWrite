@@ -11,6 +11,7 @@ const userAuth = require('../Middlewares/userAuthenticationMiddleware');
 const customerSupport = require('../Controllers/customerSupportController');
 const getProfileInformation = require('../Controllers/profileController');
 const { uploadPost } = require('../Controllers/postController');
+const { getAllPost } = require('../Controllers/getAllPostController');
 const router = express.Router();
 
 router.get('/', userAuth('usertoken'), (req, res) => {
@@ -48,4 +49,6 @@ router.get('/user/customersupport', userAuth('usertoken'), (req, res) => res.ren
 
 router.post('/user/support', customerSupport);
 router.post('/user/post', uploader.single('postimage'), uploadPost);
+
+router.get('/user/getAllPost',userAuth('usertoken'),getAllPost);
 module.exports = router;

@@ -1,0 +1,57 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#mainContainer{
+    /* border: 2px solid red; */
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+#postContainer{
+    /* border: 2px solid yellow; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+.cardContainer{
+    border: 2px solid black;
+    height: 450px;
+    max-width: 500px;
+    padding: 6px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 20%;
+}
+.imgContainer{
+    height: 270px;
+    width: 100%;
+}
+.imgContainer img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#nextPagebtn{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+}
+#nextPagebtn button{
+    height: 40px;
+    width: 80px;
+    background-color: rgb(79, 79, 247);
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    color: white;
+    cursor: pointer;
+}
+#nextPagebtn button:hover{
+    background-color: blue;
+}

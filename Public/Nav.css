@@ -7,6 +7,7 @@
 nav{
     border-bottom: 2px solid rgb(165, 164, 164);
     height: 10vh;
+    width: 100%;
     padding: 5px;
     margin-bottom: 15px;
     display: flex;
@@ -14,7 +15,9 @@ nav{
     justify-content: space-evenly;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(137, 137, 249);
-    position: sticky;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 
 #logo{

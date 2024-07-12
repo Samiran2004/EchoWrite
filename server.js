@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const figlet = require('figlet');
 const serveRoute = require('./Routes/serveRoute');
 const dbConnect = require('./Services/dbConnection');
 const cookieParser = require('cookie-parser');
@@ -32,6 +33,13 @@ app.listen(process.env.PORT, (err) => {
     if (err) {
         console.log("Error to connect with server.");
     } else {
-        console.log("Server connected ✔️  ✔️  ✔️");
+        figlet("Server Connected  .  .  .  .",(err,data)=>{
+            if(err){
+                console.log("Somethig went wrong!!");
+                return;
+            }
+            console.log(data);
+        });
+        // console.log("Server connected ✔️  ✔️  ✔️");
     }
 });

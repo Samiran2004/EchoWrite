@@ -10,6 +10,7 @@
     flex-direction: column;
     /* border: 2px solid red; */
     height: 80vh;
+    margin-top: 100px;
 }
 
 #profileImageContainer{

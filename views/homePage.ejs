@@ -6,9 +6,35 @@
     <link rel="icon" href="Logo.jpg" type="image/x-icon">
     <title>EchoWrite</title>
     <link rel="stylesheet" href="/Nav.css">
+    <link rel="stylesheet" href="/home.css">
 </head>
 <body>
     <%- include('./partials/NavBar') %>
-    <h1>Home</h1>
+    <div id="mainContainer">
+        <div id="postContainer">
+            <div class="cardContainer">
+                <div class="imgContainer">
+                    <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" alt="Reload">
+                </div>
+                <div class="titleContainer">
+                    <h2>Title</h2>
+                </div>
+                <div class="contentContainer">
+                    <p>Content</p>
+                </div>
+                <div class="creatorContainer">
+                    <p>Author</p>
+                    <p>8/7/2024</p>
+                </div>
+                <div class="readMoreContainer">
+                    <button>Read-More</button>
+                </div>
+            </div>
+
+        <div id="nextPagebtn">
+            <button>Next</button>
+        </div>
+    </div>
+    <script src="/home.js"></script>
 </body>
 </html>
