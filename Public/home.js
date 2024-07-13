@@ -25,5 +25,4 @@ const imgContainer = document.createElement('div');
 imgContainer.className = 'imgContainer';
 const img = document.createElement('img');
 
-
 getAllData();
