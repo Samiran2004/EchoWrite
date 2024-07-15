@@ -80,3 +80,8 @@
     font-size: 1.2rem;
     font-weight: 600;
 }
+.readMoreContainer:hover{
+    transition: ease-in 0.5s;
+    border-radius: 10px;
+    background-color: green;
+}

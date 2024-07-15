@@ -10,7 +10,7 @@ const uploader = require('../Middlewares/multerMiddleware');
 const userAuth = require('../Middlewares/userAuthenticationMiddleware');
 const customerSupport = require('../Controllers/customerSupportController');
 const getProfileInformation = require('../Controllers/profileController');
-const { uploadPost } = require('../Controllers/postController');
+const { uploadPost, getPostById } = require('../Controllers/postController');
 const { getAllPost } = require('../Controllers/getAllPostController');
 const router = express.Router();
 
@@ -51,4 +51,6 @@ router.post('/user/support', customerSupport);
 router.post('/user/post', uploader.single('postimage'), uploadPost);
 
 router.get('/user/getAllPost',userAuth('usertoken'),getAllPost);
+
+router.get('/post/:postId',userAuth('usertoken'),getPostById);
 module.exports = router;

@@ -4,7 +4,7 @@ const Post = require('../Models/postModel');
 const cloudinary = require('../Services/cloudinary');
 
 const uploadPost = async (req, res) => {
-    const { title, content, categories} = req.body;
+    const { title, content, categories } = req.body;
     try {
         const { usertoken } = req.cookies;
         if (!usertoken) {
@@ -35,6 +35,31 @@ const uploadPost = async (req, res) => {
     }
 }
 
+const getPostById = async (req, res) => {
+    const { postId } = req.params;
+    try {
+        if (!postId) {
+            res.render('errorPage', { errorMessage: "Post Id Not Found", backUrlL: '/' });
+        }
+        const checkPost = await Post.findById(postId);
+        if (!checkPost) {
+            res.render('errorPage', { errorMessage: 'Post Not Found', backUrl: '/' });
+        }
+        console.log(checkPost);
+        res.render('postDetsPage', {
+            postImage: checkPost.postImage,
+            postTitle: checkPost.title,
+            postContent: checkPost.content,
+            postAuthor: checkPost.authorName,
+            postPublishDate: new Date(checkPost.publishdate).toDateString(),
+            comment: checkPost.comments
+        });
+    } catch (error) {
+        res.render('errorPage', { errorMessage: "Internal Server Error", backUrl: '/' });
+    }
+}
+
 module.exports = {
-    uploadPost
+    uploadPost,
+    getPostById
 };
