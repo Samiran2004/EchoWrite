@@ -51,8 +51,8 @@
         <!-- Add more comments as needed -->
         <form class="comment-form">
             <h3>Leave a Comment</h3>
-            <textarea placeholder="Your comment" required></textarea>
-            <button type="submit">Submit</button>
+            <textarea id="commentBox" placeholder="Your comment" required></textarea>
+            <button id="postBtn" type="submit">Submit</button>
         </form>
 
         <div class="comments-section">
@@ -63,11 +63,12 @@
             </div> -->
             <% for(let i = comment.length-1; i>=0; i--){%>
                 <div class="comment">
-                    <p><%=comment[i].date%></p>
-                    <p><strong><%=comment[i].user%>:</strong> <%=comment[i].comment%></p>
+                    <p><%=comment[i].date.toDateString()%></p>
+                    <p><strong><%=comment[i].username%>:</strong> <%=comment[i].comment%></p>
                 </div>
             <%}%>
         </div>
     </div>
 </body>
+<script src="/comment.js"></script>
 </html>

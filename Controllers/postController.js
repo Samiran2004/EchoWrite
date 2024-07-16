@@ -45,8 +45,9 @@ const getPostById = async (req, res) => {
         if (!checkPost) {
             res.render('errorPage', { errorMessage: 'Post Not Found', backUrl: '/' });
         }
-        console.log(checkPost);
-        res.render('postDetsPage', {
+        // console.log(checkPost);
+        const postCookie = JWT.sign({ postid: checkPost._id }, process.env.JWT_SECRET);
+        res.cookie("postCookie", postCookie).render('postDetsPage', {
             postImage: checkPost.postImage,
             postTitle: checkPost.title,
             postContent: checkPost.content,
@@ -59,7 +60,50 @@ const getPostById = async (req, res) => {
     }
 }
 
+const postComments = async (req, res) => {
+    const { comment } = req.body;
+    const { postCookie, usertoken } = req.cookies;
+    try {
+        if (!comment) {
+            res.status(404).send({
+                status: "Failed",
+                message: "Comment Not Found"
+            });
+        } else if (!postCookie || !usertoken) {
+            res.status(404).send({
+                status: "Failed",
+                message: "Token Not Found"
+            });
+        }
+        else {
+            const postPayload = JWT.verify(postCookie, process.env.JWT_SECRET);
+            const checkPost = await Post.findById(postPayload.postid);
+            if (checkPost) {
+                const userPayload = JWT.verify(usertoken, process.env.JWT_SECRET);
+                console.log(userPayload);
+                const commentData = {
+                    user: userPayload._id,
+                    username:userPayload.username,
+                    comment: comment,
+                }
+                checkPost.comments.push(commentData);
+                await checkPost.save();
+                res.status(201).send({
+                    status: "Success",
+                    message: "Comment succesfully saved"
+                });
+            }
+        }
+    } catch (error) {
+        res.status(500).send({
+            status: "Failed",
+            message: "Internal Server error"
+        });
+    }
+}
+
 module.exports = {
     uploadPost,
-    getPostById
+    getPostById,
+    postComments
 };
