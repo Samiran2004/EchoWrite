@@ -36,3 +36,29 @@
     text-decoration: none;
     font-size: 1.5rem;
 }
+
+@media (max-width: 768px) {
+    #mainContainer {
+        background-size: contain; /* Adjust background size for better visibility on mobile */
+    }
+
+    #mainContainer h1 {
+        top: 30%; /* Adjust positioning */
+        left: 50%; /* Center align */
+        transform: translateX(-50%); /* Center align horizontally */
+        font-size: 1.5rem; /* Reduce font size */
+        text-align: center; /* Center align text */
+    }
+
+    #goBackContainer {
+        top: 50%; /* Adjust positioning */
+        left: 50%; /* Center align */
+        transform: translate(-50%, -50%); /* Center align both vertically and horizontally */
+        width: 80%; /* Adjust width */
+        height: 3rem; /* Maintain height */
+    }
+
+    #goBackContainer a {
+        font-size: 1rem; /* Reduce font size */
+    }
+}

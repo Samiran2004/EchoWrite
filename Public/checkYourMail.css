@@ -43,3 +43,35 @@ h4{
     text-decoration: none;
     font-size: 1.2rem;
 }
+
+@media (max-width: 768px) {
+    #mainContainer {
+        width: 90%;
+        padding: 20px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    }
+
+    #mainContainer img {
+        width: 80px;
+        height: 80px;
+    }
+
+    #mainContainer p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    #buttonContainer {
+        width: 120px;
+        padding: 10px;
+    }
+
+    #buttonContainer a {
+        font-size: 1rem;
+    }
+}

@@ -91,3 +91,46 @@ body {
 .comment-form button:hover {
     background-color: #0056b3;
 }
+
+
+@media (max-width: 768px) {
+    .post-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .title-container h1 {
+        font-size: 2em;
+    }
+
+    .content-container p {
+        font-size: 1em;
+    }
+
+    .meta-container .author,
+    .meta-container .date {
+        font-size: 0.8em;
+    }
+
+    .comments-section h2 {
+        font-size: 1.5em;
+    }
+
+    .comment {
+        padding: 8px;
+        margin: 8px 0;
+    }
+
+    .comment-form h3 {
+        font-size: 1.3em;
+    }
+
+    .comment-form textarea {
+        font-size: 1em;
+    }
+
+    .comment-form button {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+}

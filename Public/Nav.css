@@ -77,3 +77,34 @@ nav{
     background-size: contain;
     border: 3px solid blue;
 }
+
+@media (max-width: 768px) {
+    nav{
+        padding: 0px;
+    }
+    #logo{
+        font-size: 1rem;
+        /* border: 2px solid black; */
+        margin-right: 0px;
+        width: 30%;
+        padding-left: 10px;
+    }
+    #content{
+        /* border: 2px solid red; */
+        padding: 0;
+        width: 100%;
+    }
+    #content img{
+        display: none;
+    }
+    .cont{
+        margin: 3px;
+        height: 35px;
+        width: auto;
+        font-size: 15px;
+        background-color: rgb(137, 137, 249);
+    }
+    #userDetsContainer{
+        display: none;
+    }
+}

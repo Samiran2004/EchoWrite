@@ -98,3 +98,55 @@
 #dontAcc{
     margin-top: 20px;
 }
+
+@media (max-width: 768px) {
+    #main {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    #title {
+        font-size: 3rem;
+        margin: 10px 0;
+        writing-mode:horizontal-tb;
+    transform: rotate(360deg);
+    }
+
+    #mainBody {
+        margin: 20px 0;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    #mainBody h3 {
+        font-size: 1.5rem;
+    }
+
+    #mainBody h1 {
+        font-size: 2rem;
+    }
+
+    #inputSection {
+        width: 90%;
+        height: auto;
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    #inputSection input {
+        width: 100%;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    #inputSection button {
+        width: 60%;
+        height: 40px;
+    }
+
+    #dontAcc {
+        margin-top: 20px;
+    }
+}

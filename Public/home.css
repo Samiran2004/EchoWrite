@@ -85,3 +85,54 @@
     border-radius: 10px;
     background-color: green;
 }
+
+@media (max-width: 768px) {
+    #mainContainer {
+        margin-top: 90px;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    #postContainer {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cardContainer {
+        margin-left: 0;
+        width: 100%;
+        padding: 10px;
+        max-width: none;
+    }
+
+    .imgContainer {
+        height: 200px;
+    }
+
+    #nextPagebtn button {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .titleContainer {
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    .creatorContainer {
+        margin-top: 10px;
+        text-align: center;
+        line-height: 20px;
+    }
+
+    .readMoreContainer {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .readMoreContainer a {
+        font-size: 1rem;
+    }
+}
