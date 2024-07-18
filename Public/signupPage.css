@@ -71,6 +71,7 @@
     width: 70%;
     height: 50px;
     padding: 2%;
+    padding-left: 10px;
     font-size: 1.5rem;
     border-radius: 20px;
     border: none;
@@ -86,6 +87,7 @@
     border-radius: 5px;
     color: white;
     font-weight: 700;
+    font-size: 1.2rem;
     cursor: pointer;
 }
 
@@ -95,7 +97,7 @@
     align-items: center;
 }
 
-#dontAcc{
+#dontAcc {
     margin-top: 20px;
 }
 
@@ -109,8 +111,11 @@
     #title {
         font-size: 3rem;
         margin: 10px 0;
-        writing-mode:horizontal-tb;
-    transform: rotate(360deg);
+        writing-mode: horizontal-tb;
+        transform: rotate(360deg);
+        width: 40%;
+        text-align: center;
+        box-shadow: 10px 10px 20px gray;
     }
 
     #mainBody {
