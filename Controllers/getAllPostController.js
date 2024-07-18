@@ -2,6 +2,14 @@ const JWT = require('jsonwebtoken');
 const Post = require('../Models/postModel');
 const User = require('../Models/userModel');
 
+const randomizeData = (arr)=>{
+    for(let i = arr.length-1; i>0; i--){
+        let j = Math.floor(Math.random()*(i+1));
+        [arr[i],arr[j]] = [arr[j],arr[i]];
+    }
+    return arr;
+}
+
 const getAllPost = async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 0;  // Default to page 0 if not specified
@@ -12,9 +20,10 @@ const getAllPost = async (req, res) => {
             .limit(limit);
 
         const total = await Post.countDocuments(); 
+        const randomData = randomizeData(data);
 
         res.status(200).send({
-            data: data.reverse(),
+            data: randomData,
             total,
             page,
             pages: Math.ceil(total / limit)  
