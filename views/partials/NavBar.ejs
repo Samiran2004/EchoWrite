@@ -4,7 +4,7 @@
         <span>Write</span>
     </div>
 
-    <div id="content">
+    <!-- <div id="content">
         <div id="homeCont" class="cont">
             <img src="https://img.icons8.com/?size=100&id=86527&format=png&color=000000" alt="Reload">
             <a href="/">Home</a>
@@ -20,14 +20,36 @@
         <div id="customerSupCont" class="cont">
             <img src="https://img.icons8.com/?size=100&id=7731&format=png&color=000000" alt="Reload">
             <a href="/user/customersupport">Customer Support</a>
+        </div> -->
+
+        <div id="content">
+            <a href="/" id="homeCont" class="cont">
+                <img src="https://img.icons8.com/?size=100&id=86527&format=png&color=000000" alt="Reload">
+                <span>Home</span>
+            </a>
+            <a href="/user/post" id="postCont" class="cont">
+                <img src="https://img.icons8.com/?size=100&id=18613&format=png&color=000000" alt="Reload">
+                <span>Post</span>
+            </a>
+            <a href="/user/profile" id="profileCont" class="cont">
+                <img src="https://img.icons8.com/?size=100&id=52883&format=png&color=000000" alt="Reload">
+                <span>Profile</span>
+            </a>
+            <a href="/user/customersupport" id="customerSupCont" class="cont">
+                <img src="https://img.icons8.com/?size=100&id=7731&format=png&color=000000" alt="Reload">
+                <span>Customer Support</span>
+            </a>
         </div>
+        
     </div>
 
     <% if(locals.user) { %>
         <div id="userDetsContainer">
-            <p>
-                <%= user.username %>
-            </p>
+            <a href="/user/profile">
+                <p>
+                    <%= user.username %>
+                </p>
+            </a>
             <img src="<%=user.profileimage%>" alt="Reload">
         </div>
         <% } %>
