@@ -178,8 +178,8 @@ const forgotPassword = async (req, res) => {
                 email: email
             }
             const resetPasswordToken = JWT.sign(payload, process.env.JWT_SECRET, { expiresIn: '5m' });
-            // const link = `https://echowrite.onrender.com/resetpassword/${resetPasswordToken}`;
-            const link = `http://localhost:8000/resetpassword/${resetPasswordToken}`;
+            const link = `https://echowrite.onrender.com/resetpassword/${resetPasswordToken}`;
+            // const link = `http://localhost:8000/resetpassword/${resetPasswordToken}`;
             const emailData = {
                 to: email,
                 subject: "Reset Password",
