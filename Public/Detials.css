@@ -57,6 +57,9 @@ body {
     margin: 10px 0;
     border-left: 5px solid #007BFF;
 }
+.comment strong{
+    font-size: 1.4rem;
+}
 
 .comment-form {
     margin-top: 20px;
@@ -90,6 +93,11 @@ body {
 
 .comment-form button:hover {
     background-color: #0056b3;
+}
+
+.dateText{
+    font-size: 1.2rem;
+    margin-bottom: 15px;
 }
 
 
@@ -132,5 +140,8 @@ body {
     .comment-form button {
         font-size: 0.9em;
         padding: 8px 15px;
+    }
+    .comment strong{
+        font-size: 1.1rem;
     }
 }

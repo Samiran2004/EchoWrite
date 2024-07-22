@@ -64,7 +64,7 @@
             </div> -->
             <% for(let i = comment.length-1; i>=0; i--){%>
                 <div class="comment">
-                    <p><%=comment[i].date.toDateString()%></p>
+                    <p class="dateText"><%=comment[i].date.toDateString()%></p>
                     <p><strong><%=comment[i].username%>:</strong> <%=comment[i].comment%></p>
                 </div>
             <%}%>
