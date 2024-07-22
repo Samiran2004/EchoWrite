@@ -2,10 +2,10 @@ const JWT = require('jsonwebtoken');
 const Post = require('../Models/postModel');
 const User = require('../Models/userModel');
 
-const randomizeData = (arr)=>{
-    for(let i = arr.length-1; i>0; i--){
-        let j = Math.floor(Math.random()*(i+1));
-        [arr[i],arr[j]] = [arr[j],arr[i]];
+const randomizeData = (arr) => {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     return arr;
 }
@@ -19,14 +19,14 @@ const getAllPost = async (req, res) => {
             .skip(page * limit)
             .limit(limit);
 
-        const total = await Post.countDocuments(); 
+        const total = await Post.countDocuments();
         const randomData = randomizeData(data);
 
         res.status(200).send({
             data: randomData,
             total,
             page,
-            pages: Math.ceil(total / limit)  
+            pages: Math.ceil(total / limit)
         });
     } catch (error) {
         res.status(500).send({
