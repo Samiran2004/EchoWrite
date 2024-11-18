@@ -1,10 +1,10 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-#mainContainer{
+#mainContainer {
     display: flex;
     flex-direction: column;
     /* border: 2px solid red; */
@@ -12,7 +12,7 @@
     margin-top: 100px;
 }
 
-#profilecardContainer{
+#profilecardContainer {
     display: flex;
     justify-content: center;
 }
@@ -31,9 +31,9 @@
     position: relative;
     overflow: hidden;
     transition: all 0.5s ease;
-  }
-  
-  .profilecard::before {
+}
+
+.profilecard::before {
     content: "";
     width: 350px;
     height: 100px;
@@ -42,70 +42,72 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom: 3px solid #fefefe;
-    background: linear-gradient(40deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    background: linear-gradient(40deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
     transition: all 0.3s ease;
-  }
-  
-  .profilecard * {
+}
+
+.profilecard * {
     z-index: 1;
-  }
-  
-  #profileimage {
+}
+
+#profileimage {
     width: 90px;
     height: 90px;
     border-radius: 50%;
     border: 4px solid #fefefe;
     margin-top: 30px;
     transition: all 0.5s ease;
-  }
-  
-  .profilecard-info {
+}
+
+.profilecard-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
     transition: all 0.5s ease;
-  }
-  
-  .profilecard-info span {
+}
+
+.profilecard-info span {
     font-weight: 600;
     font-size: 24px;
     color: #161A42;
     margin-top: 15px;
     line-height: 5px;
-  }
-  
-  .profilecard-info p {
+}
+
+.profilecard-info p {
     color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .profilecard:hover {
+}
+
+.profilecard:hover {
     width: 300px;
     border-radius: 250px;
-  }
-  
-  .profilecard:hover::before {
+}
+
+.profilecard:hover::before {
     width: 300px;
     height: 300px;
     border-radius: 50%;
     border-bottom: none;
     transform: scale(0.95);
-  }
-  
-  .profilecard:hover .card-info {
-    transform: translate(0%,-15%);
-  }
+}
 
-#totalCount{
+.profilecard:hover .card-info {
+    transform: translate(0%, -15%);
+}
+
+#totalCount {
     display: flex;
     align-items: center;
     margin-left: 20px;
 }
-#totalCount p{
+
+#totalCount p {
     font-size: 2rem;
     padding-left: 2rem;
 }
-#totalCount h2{
+
+#totalCount h2 {
     font-size: 2rem;
     padding-left: 1rem;
 }
@@ -135,8 +137,8 @@
     width: 50%;
 } */
 
-/* From Uiverse.io by 0xnihilism */ 
-.profilepostcard{
+/* From Uiverse.io by 0xnihilism */
+.profilepostcard {
     width: 300px;
     padding: 20px;
     background: #fff;
@@ -144,14 +146,14 @@
     box-shadow: 12px 12px 0 #000;
     transition: transform 0.3s, box-shadow 0.3s;
     margin: 20px;
-  }
-  
-  .profilepostcard:hover {
+}
+
+.profilepostcard:hover {
     transform: translate(-5px, -5px);
     box-shadow: 17px 17px 0 #000;
-  }
-  
-  .card__title {
+}
+
+.card__title {
     font-size: 32px;
     font-weight: 900;
     color: #000;
@@ -160,9 +162,9 @@
     display: block;
     position: relative;
     overflow: hidden;
-  }
-  
-  .card__title::after {
+}
+
+.card__title::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -172,26 +174,26 @@
     background-color: #000;
     transform: translateX(-100%);
     transition: transform 0.3s;
-  }
-  
-  .profilepostcard:hover .card__title::after {
+}
+
+.profilepostcard:hover .card__title::after {
     transform: translateX(0);
-  }
-  
-  .card__content {
+}
+
+.card__content {
     font-size: 16px;
     line-height: 1.4;
     color: #000;
     margin-bottom: 20px;
-  }
-  
-  .card__form {
+}
+
+.card__form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-  }
-  
-  .card__button {
+}
+
+.card__button {
     border: 3px solid #000;
     background: #000;
     color: #fff;
@@ -208,9 +210,9 @@
     height: 100%;
     text-decoration: none;
     text-align: center;
-  }
-  
-  .card__button::before {
+}
+
+.card__button::before {
     content: "MORE";
     position: absolute;
     top: 0;
@@ -224,48 +226,54 @@
     justify-content: center;
     transform: translateY(100%);
     transition: transform 0.3s;
-  }
-  
-  .card__button:hover::before {
-    transform: translateY(0);
-  }
-  
-  .card__button:active {
-    transform: scale(0.95);
-  }
+}
 
-  .profilepostImage img{
+.card__button:hover::before {
+    transform: translateY(0);
+}
+
+.card__button:active {
+    transform: scale(0.95);
+}
+
+.profilepostImage img {
     width: 100%;
     max-height: 200px;
+    min-height: 200px;
     object-fit: contain;
-  }
-  
-  @keyframes glitch {
+}
+
+@keyframes glitch {
     0% {
-      transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
     }
+
     25% {
-      transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
     }
+
     50% {
-      transform: translate(-2px, 2px);
+        transform: translate(-2px, 2px);
     }
+
     75% {
-      transform: translate(2px, -2px);
+        transform: translate(2px, -2px);
     }
+
     100% {
-      transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
     }
-  }
-  
-  .glitch {
+}
+
+.glitch {
     animation: glitch 0.3s infinite;
-  }
-  
-  #postCardContainers {
+}
+
+#postCardContainers {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px; /* Adjust the gap between the posts as needed */
+    gap: 20px;
+    /* Adjust the gap between the posts as needed */
 }
 
 @media (max-width: 768px) {
