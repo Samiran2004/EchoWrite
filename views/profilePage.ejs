@@ -13,12 +13,16 @@
 <body>
     <%- include('./partials/NavBar') %>
         <div id="mainContainer">
-            <div id="profileImageContainer">
-                <img id="profileImage" src="" alt="Reload">
-            </div>
-            <div id="userContent">
-                <h1 id="username"></h1>
-                <h3 id="useremail"></h3>
+            <div id="profilecardContainer">
+                <div class="profilecard">
+                    <!-- <div id="profileimage"> -->
+                        <img id="profileimage" src="" alt="">
+                    <!-- </div> -->
+                    <div class="profilecard-info">
+                        <span id="username"></span>
+                        <p id="useremail">Support Specialist</p>
+                    </div>
+                </div>
             </div>
 
             <div id="userPostContainer">
@@ -38,11 +42,11 @@
                             <h4 class="postDate">Date</h4>
                             <h2 class="titleTxt">Title</h2>
                             <div class="editContainer">
-                                
+
                             </div>
                         </div>
                     </div>
-                    <!-- <script src="/profile.js"></script> -->
+                    <script src="/profile.js"></script>
 </body>
 
 </html>

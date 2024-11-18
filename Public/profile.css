@@ -6,38 +6,95 @@
 
 #mainContainer{
     display: flex;
-    
     flex-direction: column;
     /* border: 2px solid red; */
     height: 80vh;
     margin-top: 100px;
 }
 
-#profileImageContainer{
-    /* border: 2px solid black; */
+#profilecardContainer{
     display: flex;
     justify-content: center;
-    height: 50%;
 }
 
-#profileImage{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 10px 10px 20px gray;
-    margin-top: 20px;
-}
-
-#userContent{
-    /* border: 2px solid green; */
+.profilecard {
+    width: 350px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 20px;
-}
-#username{
-    font-size: 5rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+    gap: 10px;
+    background-color: #fffffe;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+  
+  .profilecard::before {
+    content: "";
+    width: 350px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom: 3px solid #fefefe;
+    background: linear-gradient(40deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    transition: all 0.3s ease;
+  }
+  
+  .profilecard * {
+    z-index: 1;
+  }
+  
+  #profileimage {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 4px solid #fefefe;
+    margin-top: 30px;
+    transition: all 0.5s ease;
+  }
+  
+  .profilecard-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.5s ease;
+  }
+  
+  .profilecard-info span {
+    font-weight: 600;
+    font-size: 24px;
+    color: #161A42;
+    margin-top: 15px;
+    line-height: 5px;
+  }
+  
+  .profilecard-info p {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .profilecard:hover {
+    width: 300px;
+    border-radius: 250px;
+  }
+  
+  .profilecard:hover::before {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border-bottom: none;
+    transform: scale(0.95);
+  }
+  
+  .profilecard:hover .card-info {
+    transform: translate(0%,-15%);
+  }
 
 #totalCount{
     display: flex;

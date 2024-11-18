@@ -1,7 +1,8 @@
 const getUserdata = async () => {
     try {
-        const token = localStorage.getItem('usertoken')
-        const URL = `/user/profileinfo/${encodeURIComponent(token)}`
+        const token = localStorage.getItem('usertoken');
+        
+        const URL = `/user/profileinfo/${encodeURIComponent(token)}`;
         const response = await fetch(URL, {
             method: "GET",
             headers: {
@@ -19,13 +20,18 @@ const getUserdata = async () => {
         document.querySelector('#postCount').innerText = data.postData.length;
 
         const imgUrl = data.userdata.profileImage;
-        document.getElementById('profileImage').src = imgUrl;
-
+        console.log(imgUrl);
+        
+        if (imgUrl) {
+            document.getElementById('profileimage').src = imgUrl;
+        } else {
+            document.getElementById('profileimage').src = 'default-image-path.jpg';
+        }
 
         const postCardContainer = document.getElementById('postCardContainers');
         postCardContainer.innerHTML = "";
 
-        for(i = data.postData.length-1; i>=0; i--){
+        for (let i = data.postData.length - 1; i >= 0; i--) {
             const postCard = document.createElement('div');
             postCard.className = 'postCard';
 
