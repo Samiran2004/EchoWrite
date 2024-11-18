@@ -83,7 +83,7 @@ const postComments = async (req, res) => {
                 console.log(userPayload);
                 const commentData = {
                     user: userPayload._id,
-                    username:userPayload.username,
+                    username: userPayload.username,
                     comment: comment,
                 }
                 checkPost.comments.push(commentData);

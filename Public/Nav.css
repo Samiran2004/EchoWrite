@@ -26,6 +26,11 @@ nav{
     margin-right: 4rem;
 }
 
+#logo img{
+    width: 160px;
+    border-radius: 10px;
+}
+
 #content{
     display: flex;
     justify-content: space-evenly;

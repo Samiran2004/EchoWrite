@@ -14,6 +14,16 @@ const { uploadPost, getPostById, postComments } = require('../Controllers/postCo
 const { getAllPost } = require('../Controllers/getAllPostController');
 const router = express.Router();
 
+/**
+ * @swagger
+ * /:
+ *  get:
+ *      summary: Home page
+ *      description: This is home page route
+ *      responses:
+ *          200:
+ *              description: A list of sample Home page
+ */
 router.get('/', userAuth('usertoken'), (req, res) => {
     res.render('homePage');
 });
