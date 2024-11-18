@@ -13,7 +13,7 @@ const getUserdata = async () => {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         const data = await response.json();
-        console.log(data);
+        console.log(data.postData[0]._id);
 
         document.querySelector('#username').innerText = data.userdata.name;
         document.querySelector('#useremail').innerText = data.userdata.email;
@@ -33,14 +33,31 @@ const getUserdata = async () => {
 
         for (let i = data.postData.length - 1; i >= 0; i--) {
             const postCard = document.createElement('div');
-            postCard.className = 'postCard';
+            postCard.className = 'profilepostcard';
+
+            const cardTitle = document.createElement('span');
+            cardTitle.className = 'card__title';
+            cardTitle.innerText = 'POST';
+
+            const cardContent = document.createElement('p');
+            cardContent.className = 'card__content';
+
+            const cardForm = document.createElement('form');
+            cardForm.className = 'card__form';
 
             const postImage = document.createElement('div');
-            postImage.className = 'postImage';
+            postImage.className = 'profilepostImage';
             const img = document.createElement('img');
             img.src = data.postData[i].postImage;
             img.alt = 'Reload';
             postImage.appendChild(img);
+
+            const cardButton = document.createElement('a');
+            cardButton.className = 'card__button';
+            cardButton.href = `/post/${data.postData[i]._id}`;
+            cardButton.innerText = 'READ';
+
+            cardForm.appendChild(cardButton);
 
             const title = document.createElement('div');
             title.className = 'title';
@@ -56,7 +73,10 @@ const getUserdata = async () => {
             title.appendChild(postDate);
             title.appendChild(titleTxt);
 
+            postCard.appendChild(cardTitle);
+            postCard.appendChild(cardContent);
             postCard.appendChild(postImage);
+            postCard.appendChild(cardForm);
             postCard.appendChild(title);
 
             postCardContainer.appendChild(postCard);
