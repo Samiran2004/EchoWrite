@@ -5,7 +5,7 @@
 }
 
 nav{
-    border-bottom: 2px solid rgb(165, 164, 164);
+    /* border-bottom: 2px solid rgb(165, 164, 164); */
     height: 10vh;
     width: 100%;
     padding: 5px;
@@ -14,7 +14,8 @@ nav{
     align-items: center;
     justify-content: space-evenly;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgb(137, 137, 249);
+    /* background-color: rgb(137, 137, 249); */
+    background: linear-gradient(40deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
     position: fixed;
     top: 0;
     z-index: 1000;
@@ -56,7 +57,8 @@ nav{
     width: 30%;
     justify-content: center;
     align-items: center;
-    background-color: rgb(103, 103, 250);
+    /* background-color: rgb(103, 103, 250); */
+    background: linear-gradient(40deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
     border-radius: 20px;
     cursor: pointer;
 }
@@ -88,7 +90,7 @@ nav{
     height: 100%;
     border-radius: 50%;
     background-size: contain;
-    border: 3px solid blue;
+    border: 3px solid red;
 }
 
 #profileCont{

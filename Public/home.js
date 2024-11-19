@@ -72,7 +72,7 @@
 
 
 let currentPage = 0;
-const postsPerPage = 4;
+const postsPerPage = 10;
 let isFetching = false;  // Prevents multiple simultaneous fetch requests
 
 async function fetchPosts(page, limit) {
@@ -97,7 +97,11 @@ function createPostCard(postData) {
     const imgContainer = document.createElement('div');
     imgContainer.className = 'imgContainer';
     const img = document.createElement('img');
-    img.src = postData.postImage;
+    if(postData.postImage){
+        img.src = postData.postImage;
+    }else{
+        img.src = `https://grassworksmanufacturing.com/wp-content/themes/i3-digital/images/no-image-available.png`;
+    }
     imgContainer.appendChild(img);
 
     const titleContainer = document.createElement('div');

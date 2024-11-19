@@ -243,6 +243,12 @@
     object-fit: contain;
 }
 
+#username {
+    font-family: "Lavishly Yours", cursive;
+    font-weight: 600;
+    font-style: normal;
+}
+
 @keyframes glitch {
     0% {
         transform: translate(2px, 2px);
