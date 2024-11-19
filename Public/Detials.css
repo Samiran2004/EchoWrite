@@ -57,7 +57,8 @@ body {
     margin: 10px 0;
     border-left: 5px solid #007BFF;
 }
-.comment strong{
+
+.comment strong {
     font-size: 1.4rem;
 }
 
@@ -95,9 +96,134 @@ body {
     background-color: #0056b3;
 }
 
-.dateText{
+.dateText {
     font-size: 1.2rem;
     margin-bottom: 15px;
+}
+
+#postDetsShareCont {
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* From Uiverse.io by csozidev */
+/* Cool share button made by: csozi | Website: english.csozi.hu*/
+
+.sharebuttons {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: fit-content;
+    width: fit-content;
+    transition: 0.2s;
+    border-radius: 50%;
+}
+
+.sharebuttons:hover {
+    padding: 60px;
+}
+
+.sharebuttons:hover .button {
+    box-shadow: 5px 5px 12px #cacaca, -5px -5px 12px #ffffff;
+}
+
+.main-button {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    border: none;
+    background: #e8e8e8;
+    box-shadow: 5px 5px 12px #cacaca, -5px -5px 12px #ffffff;
+    border-radius: 50%;
+    transition: 0.2s;
+    z-index: 100;
+}
+
+.button {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    border: none;
+    background: #e8e8e8;
+    box-shadow: 5px 5px 12px rgba(202, 202, 202, 0), -5px -5px 12px rgba(255, 255, 255, 0);
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.discord-button:hover {
+    background: #5865F2;
+}
+
+.sharebuttons:hover .discord-button {
+    translate: 70px 0px;
+    box-shadow: 5px 5px 12px #cacaca, -5px -5px 12px #ffffff;
+}
+
+.twitter-button:hover {
+    background: #1CA1F1;
+}
+
+.sharebuttons:hover .twitter-button {
+    translate: 47px -47px;
+    box-shadow: 5px 5px 12px #cacaca, -5px -5px 12px #ffffff;
+}
+
+.reddit-button:hover {
+    background: #FF4500;
+}
+
+.sharebuttons:hover .reddit-button {
+    translate: 0px -70px;
+    box-shadow: 5px 5px 12px #cacaca, -5px -5px 12px #ffffff;
+}
+
+.messenger-button:hover {
+    background: #0093FF;
+}
+
+.sharebuttons:hover .messenger-button {
+    translate: -47px -47px;
+    box-shadow: 5px 5px 12px #cacaca, -5px -5px 12px #ffffff;
+}
+
+.pinterest-button:hover {
+    background: #F0002A;
+}
+
+.sharebuttons:hover .pinterest-button {
+    translate: -70px 0px;
+    box-shadow: 5px 5px 12px #cacaca, -5px -5px 12px #ffffff;
+}
+
+.instagram-button:hover {
+    background: #F914AF;
+}
+
+.sharebuttons:hover .instagram-button {
+    translate: -47px 47px;
+    box-shadow: 5px 5px 12px #cacaca, -5px -5px 12px #ffffff;
+}
+
+.snapchat-button:hover {
+    background: #FFFC00;
+}
+
+.sharebuttons:hover .snapchat-button {
+    translate: 0px 70px;
+    box-shadow: 5px 5px 12px #cacaca, -5px -5px 12px #ffffff;
+}
+
+.whatsapp-button:hover {
+    background: #25D366;
+}
+
+.sharebuttons:hover .whatsapp-button {
+    translate: 47px 47px;
+    box-shadow: 5px 5px 12px #cacaca, -5px -5px 12px #ffffff;
 }
 
 
@@ -141,7 +267,8 @@ body {
         font-size: 0.9em;
         padding: 8px 15px;
     }
-    .comment strong{
+
+    .comment strong {
         font-size: 1.1rem;
     }
 }
