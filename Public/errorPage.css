@@ -1,64 +1,65 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap');
+body{
+    height: 95vh;
+    background: #000000;
+    text-align: center;
+    color: #E0E0E0;
+    font-family: 'Fira Mono', monospace;
+}
+h1{
+    font-size: 2.5rem;
+    font-family: 'Permanent Marker', cursive;
+}
+div{
+    transform-style: preserve-3d;
+}
+svg{
+    width: clamp(300px , 70% , 600px);
+    height: 500px;
+  
+}
+#rocket{
+    
+    transform: translateY(750px);
+   
+    animation: launch 2s ease-out forwards;
 }
 
-#mainContainer{
-    width: 100vw;
-    height: 100vh;
-    background-image: url(https://fileserver.teachstarter.com/thumbnails/30788-old-paper-scroll-page-border-gb-thumbnail-0-1200x628.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+@keyframes launch {
+    from {
+        transform: translateY(750px);
+    }
+    to{
+        perspective: 500px;
+        transform: translateY(0px); 
+    }
 }
-#mainContainer h1{
-    position: absolute;
-    top: 40%;
-    left: 24%;
-    font-size: 2.3rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+#stars {
+    animation: twinkling 2s linear ;
 }
-#goBackContainer{
-    position: absolute;
-    top: 70%;
-    left: 35%;
-    border: 2px solid gray;
-    border-radius: 5px;
-    width: 6.2rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: blueviolet;
+@keyframes twinkling {
+
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
 }
-#goBackContainer a{
-    color: white;
+.text{
+    opacity: 0;
+    animation:appear 1s ease-in forwards;
+    animation-delay: 1.8s;
+}
+@keyframes appear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+a{
+    color:#F66947;
     text-decoration: none;
-    font-size: 1.5rem;
-}
-
-@media (max-width: 768px) {
-    #mainContainer {
-        background-size: contain; /* Adjust background size for better visibility on mobile */
-    }
-
-    #mainContainer h1 {
-        top: 30%; /* Adjust positioning */
-        left: 50%; /* Center align */
-        transform: translateX(-50%); /* Center align horizontally */
-        font-size: 1.5rem; /* Reduce font size */
-        text-align: center; /* Center align text */
-    }
-
-    #goBackContainer {
-        top: 50%; /* Adjust positioning */
-        left: 50%; /* Center align */
-        transform: translate(-50%, -50%); /* Center align both vertically and horizontally */
-        width: 80%; /* Adjust width */
-        height: 3rem; /* Maintain height */
-    }
-
-    #goBackContainer a {
-        font-size: 1rem; /* Reduce font size */
-    }
 }
