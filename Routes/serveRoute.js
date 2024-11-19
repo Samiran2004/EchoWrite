@@ -36,6 +36,10 @@ router.get('/login', (req, res) => {
     res.render('loginPage');
 });
 
+router.get('/logout', userAuth('usertoken'), (req, res)=>{
+    res.clearCookie('usertoken').redirect('/');
+});
+
 router.get('/forgotpassword', (req, res) => {
     res.render('forgotPasswordPage');
 });
