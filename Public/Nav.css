@@ -116,6 +116,9 @@ nav{
     #content img{
         display: none;
     }
+    #content a{
+       background: none;
+    }
     .cont{
         margin: 3px;
         height: 35px;
@@ -128,5 +131,8 @@ nav{
     }
     #profileCont{
         display:contents;
+    }
+    #logo img{
+        max-width: 20vw;
     }
 }
