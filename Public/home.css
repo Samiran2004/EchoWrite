@@ -423,4 +423,9 @@ svg {
     .readMoreContainer a {
         font-size: 1rem;
     }
+    #postContainer li{
+        margin-top: 30px;
+        border-bottom: 1px dotted black;
+        padding-bottom: 15px;
+    }
 }
