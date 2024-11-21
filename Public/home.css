@@ -269,6 +269,7 @@ svg {
     color: hsl(225, 4%, 47%);
     line-height: 1.58;
 }
+
 .articles-v3__description {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -423,7 +424,8 @@ svg {
     .readMoreContainer a {
         font-size: 1rem;
     }
-    #postContainer li{
+
+    #postContainer li {
         margin-top: 30px;
         border-bottom: 1px dotted black;
         padding-bottom: 15px;
