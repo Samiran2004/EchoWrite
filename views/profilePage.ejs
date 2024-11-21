@@ -19,11 +19,11 @@
             <div id="profilecardContainer">
                 <div class="profilecard">
                     <!-- <div id="profileimage"> -->
-                    <img id="profileimage" src="" alt="">
+                    <img id="profileimage" src="<%=user.profileimage%>" alt="">
                     <!-- </div> -->
                     <div class="profilecard-info">
-                        <span id="username"></span>
-                        <p id="useremail">Support Specialist</p>
+                        <span id="username"><%= user.username %></span>
+                        <p id="useremail"><%= user.email %></p>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <div id="userPostContainer">
                 <div id="totalCount">
                     <p>Total Post:</p>
-                    <h2 id="postCount"></h2>
+                    <h2 id="postCount">0</h2>
                 </div>
 
                 <!-- Add Post section -->

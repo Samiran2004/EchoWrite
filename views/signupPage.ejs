@@ -12,10 +12,6 @@
 <body>
     <div id="main">
         <h1 id="title">Sign-In</h1>
-        <div id="mainBody">
-            <h3>SIGN IN TO OUR</h3>
-            <h1>ECHOWRITE</h1>
-
             <div id="inputSection">
                 <form class="form" action="/user/signup" method="post" enctype="multipart/form-data">
                     <div class="flex-column">
@@ -24,10 +20,11 @@
                     <div class="inputForm">
                         <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
                             <g id="Layer_3" data-name="Layer 3">
-                                <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 4a4 4 0 1 1-4 4 4 4 0 0 1 4-4zm0 20c-4.418 0-8-3.582-8-8 0-1.657 1.343-3 3-3h10c1.657 0 3 1.343 3 3 0 4.418-3.582 8-8 8z"/>
+                                <path
+                                    d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 4a4 4 0 1 1-4 4 4 4 0 0 1 4-4zm0 20c-4.418 0-8-3.582-8-8 0-1.657 1.343-3 3-3h10c1.657 0 3 1.343 3 3 0 4.418-3.582 8-8 8z" />
                             </g>
                         </svg>
-                        
+
                         <input type="text" name="name" id="name" class="input" placeholder="Enter your fullname">
                     </div>
                     <div class="flex-column">
@@ -43,7 +40,7 @@
                         </svg>
                         <input type="email" name="email" id="email" class="input" placeholder="Enter your Email">
                     </div>
-        
+
                     <div class="flex-column">
                         <label>Password </label>
                     </div>
@@ -56,7 +53,8 @@
                                 d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0">
                             </path>
                         </svg>
-                        <input type="password" name="password" id="password" class="input" placeholder="Enter your Password">
+                        <input type="password" name="password" id="password" class="input"
+                            placeholder="Enter your Password">
                         <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z">
@@ -70,45 +68,51 @@
                     <div class="inputForm">
                         <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
                             <g id="Layer_3" data-name="Layer 3">
-                                <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 4a4 4 0 1 1-4 4 4 0 0 1 4-4zm0 20c-4.418 0-8-3.582-8-8 0-1.657 1.343-3 3-3h10c1.657 0 3 1.343 3 3 0 4.418-3.582 8-8 8z"/>
+                                <path
+                                    d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 4a4 4 0 1 1-4 4 4 0 0 1 4-4zm0 20c-4.418 0-8-3.582-8-8 0-1.657 1.343-3 3-3h10c1.657 0 3 1.343 3 3 0 4.418-3.582 8-8 8z" />
                             </g>
-                        </svg>                        
-                        <input type="file" name="profileimage" id="profileimage" class="input" placeholder="Enter your Profile Image">
+                        </svg>
+                        <input type="file" name="profileimage" id="profileimage" class="input"
+                            placeholder="Enter your Profile Image">
                     </div>
-        
+
                     <button class="button-submit">Sign-In</button>
-                    <p class="p">Already have an account? <span class="span"><a href="/login" style="text-decoration: none; color: blue;">LogIn</a></span>
-        
+                    <p class="p">Already have an account? <span class="span"><a href="/login"
+                                style="text-decoration: none; color: blue;">LogIn</a></span>
+
                     </p>
                     <p class="p line">Or With</p>
-        
+
                     <div class="flex-row">
-                        <button class="btn google">
-                            <svg version="1.1" width="20" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                                style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                                <path style="fill:#FBBB00;" d="M113.47,309.408L95.648,375.94l-65.139,1.378C11.042,341.211,0,299.9,0,256
-            c0-42.451,10.324-82.483,28.624-117.732h0.014l57.992,10.632l25.404,57.644c-5.317,15.501-8.215,32.141-8.215,49.456
-            C103.821,274.792,107.225,292.797,113.47,309.408z"></path>
-                                <path style="fill:#518EF8;" d="M507.527,208.176C510.467,223.662,512,239.655,512,256c0,18.328-1.927,36.206-5.598,53.451
-            c-12.462,58.683-45.025,109.925-90.134,146.187l-0.014-0.014l-73.044-3.727l-10.338-64.535
-            c29.932-17.554,53.324-45.025,65.646-77.911h-136.89V208.176h138.887L507.527,208.176L507.527,208.176z"></path>
-                                <path style="fill:#28B446;" d="M416.253,455.624l0.014,0.014C372.396,490.901,316.666,512,256,512
-            c-97.491,0-182.252-54.491-225.491-134.681l82.961-67.91c21.619,57.698,77.278,98.771,142.53,98.771
-            c28.047,0,54.323-7.582,76.87-20.818L416.253,455.624z"></path>
-                                <path style="fill:#F14336;" d="M419.404,58.936l-82.933,67.896c-23.335-14.586-50.919-23.012-80.471-23.012
-            c-66.729,0-123.429,42.957-143.965,102.724l-83.397-68.276h-0.014C71.23,56.123,157.06,0,256,0
-            C318.115,0,375.068,22.126,419.404,58.936z"></path>
-        
-                            </svg>
-        
-                            Google
-        
-                        </button>
+                        <!-- <a href="/auth/google" class="btn google"> -->
+                            <a href="/auth/google" style="text-decoration: none; color: black;" class="btn google">
+                                <svg version="1.1" width="20" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                                    style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                    <path style="fill:#FBBB00;" d="M113.47,309.408L95.648,375.94l-65.139,1.378C11.042,341.211,0,299.9,0,256
+                c0-42.451,10.324-82.483,28.624-117.732h0.014l57.992,10.632l25.404,57.644c-5.317,15.501-8.215,32.141-8.215,49.456
+                C103.821,274.792,107.225,292.797,113.47,309.408z"></path>
+                                    <path style="fill:#518EF8;" d="M507.527,208.176C510.467,223.662,512,239.655,512,256c0,18.328-1.927,36.206-5.598,53.451
+                c-12.462,58.683-45.025,109.925-90.134,146.187l-0.014-0.014l-73.044-3.727l-10.338-64.535
+                c29.932-17.554,53.324-45.025,65.646-77.911h-136.89V208.176h138.887L507.527,208.176L507.527,208.176z">
+                                    </path>
+                                    <path style="fill:#28B446;" d="M416.253,455.624l0.014,0.014C372.396,490.901,316.666,512,256,512
+                c-97.491,0-182.252-54.491-225.491-134.681l82.961-67.91c21.619,57.698,77.278,98.771,142.53,98.771
+                c28.047,0,54.323-7.582,76.87-20.818L416.253,455.624z"></path>
+                                    <path style="fill:#F14336;" d="M419.404,58.936l-82.933,67.896c-23.335-14.586-50.919-23.012-80.471-23.012
+                c-66.729,0-123.429,42.957-143.965,102.724l-83.397-68.276h-0.014C71.23,56.123,157.06,0,256,0
+                C318.115,0,375.068,22.126,419.404,58.936z"></path>
+
+                                </svg>
+
+                                Google
+
+                            </a>
+                        </a>
                     </div>
                 </form>
             </div>
-        </div>
     </div>
 </body>
+
 </html>
