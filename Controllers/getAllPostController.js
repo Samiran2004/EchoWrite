@@ -16,6 +16,7 @@ const getAllPost = async (req, res) => {
         const limit = parseInt(req.query.limit) || 10;  // Default to 10 items per page if not specified
 
         const data = await Post.find()
+            .populate('authorId', 'name email profileImage _id')  // Populate user data
             .skip(page * limit)
             .limit(limit);
 

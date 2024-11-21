@@ -1,0 +1,222 @@
+/* -------------------------------- 
+
+File#: _1_stacking-cards
+Title: Stacking Cards
+Descr: Cards stack effect on vertical scrolling
+Usage: codyhouse.co/license
+
+-------------------------------- */
+/* reset */
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+* {
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: hsl(0, 0%, 100%);
+    font-family: system-ui, sans-serif;
+    color: hsl(230, 7%, 23%);
+    font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.2;
+    color: hsl(230, 13%, 9%);
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.0736rem;
+}
+
+h2 {
+    font-size: 1.728rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+ol,
+ul,
+menu {
+    list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+    background-color: transparent;
+    border-radius: 0;
+    color: inherit;
+    line-height: inherit;
+    appearance: none;
+}
+
+textarea {
+    resize: vertical;
+    overflow: auto;
+    vertical-align: top;
+}
+
+a {
+    color: hsl(250, 84%, 54%);
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img,
+video,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+@media (min-width: 64rem) {
+    body {
+        font-size: 1.25rem;
+    }
+
+    h1 {
+        font-size: 3.051rem;
+    }
+
+    h2 {
+        font-size: 2.44rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    h4 {
+        font-size: 1.5625rem;
+    }
+}
+
+/* variables */
+:root {
+    /* colors */
+    --sg0-color-primary-hsl: 250, 84%, 54%;
+    --sg0-color-bg-hsl: 0, 0%, 100%;
+    --sg0-color-contrast-high-hsl: 230, 7%, 23%;
+    --sg0-color-contrast-higher-hsl: 230, 13%, 9%;
+    --sg0-color-bg-light-hsl: 0, 0%, 100%;
+
+    /* spacing */
+    --sg0-space-sm: 0.75rem;
+    --sg0-space-md: 1.25rem;
+}
+
+@media(min-width: 64rem) {
+    :root {
+        /* spacing */
+        --sg0-space-sm: 1.125rem;
+        --sg0-space-md: 2rem;
+    }
+}
+
+/* component */
+.stack-cards {
+    --stack-cards-gap: var(--sg0-space-sm);
+    --stack-cards-item-ratio: 2/1;
+}
+
+#stackCards{
+    margin: 10%;
+    border-radius: 20px;
+}
+#stackCards img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 20px;
+}
+
+.stack-cards__item {
+    position: relative;
+    position: -webkit-sticky;
+    position: sticky;
+    top: var(--sg0-space-md);
+    height: 0;
+    padding-bottom: calc(100%/(var(--stack-cards-item-ratio)));
+    -webkit-transform-origin: center top;
+    transform-origin: center top;
+}
+
+.stack-cards__item>* {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+/* utility classes */
+.sg0-overflow-hidden {
+    overflow: hidden;
+}
+
+.sg0-shadow-md {
+    box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03), 0 3.1px 5.5px rgba(0, 0, 0, 0.08), 0 14px 25px rgba(0, 0, 0, 0.12);
+}
+
+.sg0-radius-lg {
+    border-radius: 0.5em;
+}
+
+.sg0-bg {
+    --sg0-bg-o: 1;
+    background-color: hsla(var(--sg0-color-bg-hsl), var(--sg0-bg-o, 1));
+}
+
+.sg0-flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.sg0-flex {
+    display: flex;
+}
+
+:where(.sg0-inner-glow) {
+    position: relative;
+}
+
+.sg0-inner-glow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075);
+}
+
+.sg0-bg-light {
+    --sg0-bg-o: 1;
+    background-color: hsla(var(--sg0-color-bg-light-hsl), var(--sg0-bg-o, 1));
+}

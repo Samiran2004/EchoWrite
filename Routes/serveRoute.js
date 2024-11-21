@@ -12,6 +12,7 @@ const customerSupport = require('../Controllers/customerSupportController');
 const getProfileInformation = require('../Controllers/profileController');
 const { uploadPost, getPostById, postComments } = require('../Controllers/postController');
 const { getAllPost } = require('../Controllers/getAllPostController');
+const getUserById = require('../Controllers/getUserByIdController');
 const router = express.Router();
 
 /**
@@ -36,7 +37,7 @@ router.get('/login', (req, res) => {
     res.render('loginPage');
 });
 
-router.get('/logout', userAuth('usertoken'), (req, res)=>{
+router.get('/logout', userAuth('usertoken'), (req, res) => {
     res.clearCookie('usertoken').redirect('/');
 });
 
@@ -57,6 +58,7 @@ router.post('/updatePassword', updatePassword);
 
 router.get('/user/post', userAuth('usertoken'), (req, res) => res.render('postPage'));
 router.get('/user/profile', userAuth('usertoken'), (req, res) => res.render('profilePage'));
+router.get('/user/getuserById/:authorId', userAuth('usertoken'), getUserById);
 router.get('/user/profileinfo/:token', getProfileInformation);
 // router.get('/user/profileinfo', getProfileInformation);
 router.get('/user/customersupport', userAuth('usertoken'), (req, res) => res.render('supportPage'));

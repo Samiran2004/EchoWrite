@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="Logo.jpg" type="image/x-icon">
     <title>EchoWrite</title>
     <link rel="stylesheet" href="/Nav.css">
-     <!-- <link rel="stylesheet" href="/testNav.css"> -->
+    <!-- <link rel="stylesheet" href="/testNav.css"> -->
     <link rel="stylesheet" href="/home.css">
 </head>
+
 <body>
     <%- include('./partials/NavBar') %>
-    <div id="mainContainer">
-        <div id="postContainer">
+        <div id="mainContainer">
+            <!-- <div id="postContainer"> -->
             <!-- <div class="cardContainer">
                 <div class="imgContainer">
                     <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" alt="Reload">
@@ -29,8 +31,49 @@
                     <button>Read-More</button>
                 </div>
             </div> -->
+            <!-- <section class="articles-v3">
+                <div class="cd-container cd-max-width-adaptive-lg">
+                    <ul class="articles-v3__list-grid">
+                        <li class="articles-v3__item-grid">
+                            <a href="#0" class="articles-v3__img-wrapper">
+                                <img src="img/article-gallery-v3-img-1.jpg" alt="Image description">
+                            </a>
 
-    </div>
-    <script src="/home.js"></script>
+                            <div>
+                                <h2 class="articles-v3__headline"><a href="#0">Strength does not come from winning</a>
+                                </h2>
+
+                                <p class="articles-v3__description">Lorem ipsum dolor sit amet consectetur, adipisicing
+                                    elit. Doloribus, fugit minus! Quisquam repellat, odio maxime velit temporibus eum
+                                    dignissimos quae.</p>
+
+                                <div class="articles-v3__author">
+                                    <a href="#0" class="articles-v3__author-img">
+                                        <img src="img/article-gallery-v3-author-img-1.jpg" alt="Author picture">
+                                    </a>
+
+                                    <div class="articles-v3__author-info">
+                                        <p><a href="#0" class="articles-v3__author-name" rel="author">Olivia Gribben</a>
+                                        </p>
+                                        <p class="articles-v3__date"><time>Oct 4, 2050</time>, &mdash; 5 min read</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section> -->
+            <section class="articles-v3">
+                <div class="cd-container cd-max-width-adaptive-lg">
+                    <ul class="articles-v3__list-grid" id="postContainer">
+                        <!-- Posts will be dynamically inserted here -->
+                    </ul>
+                </div>
+            </section>
+            
+
+        </div>
+        <script src="/home.js"></script>
 </body>
+
 </html>
