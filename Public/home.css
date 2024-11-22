@@ -10,12 +10,7 @@
     margin-bottom: 30px;
 }
 
-/* #postContainer{
-    /* border: 2px solid yellow; */
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 40px;
-}
+
 
 */ .cardContainer {
     border: 2px solid black;
@@ -258,6 +253,7 @@ svg {
 .articles-v3__headline a {
     color: hsl(230, 13%, 9%);
     text-decoration: none;
+    font-family: "Raleway", sans-serif;
 }
 
 .articles-v3__headline a:hover {
@@ -268,6 +264,7 @@ svg {
     margin: 1rem 0;
     color: hsl(225, 4%, 47%);
     line-height: 1.58;
+    font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
 .articles-v3__description {
