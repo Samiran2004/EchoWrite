@@ -19,6 +19,7 @@ nav{
     position: fixed;
     top: 0;
     z-index: 1000;
+    transition: top 0.6s ease-in-out;
 }
 
 #logo{

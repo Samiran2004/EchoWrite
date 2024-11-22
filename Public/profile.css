@@ -17,13 +17,6 @@
     margin-bottom: 10px;
 }
 
-/* #profilecardContainer #aboutSection {
-    position: relative;
-    top: 20%;
-    padding-left: 20px;
-    line-height: 30px;
-} */
-
 #aboutSection {
     margin: 20px;
     padding: 20px;
@@ -283,6 +276,19 @@
 #logoutBtnContainer {
     position: absolute;
     right: 2%;
+    top: 10%;
+    margin: 10px;
+}
+
+#editProfileBtnContainer{
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    margin: 10px;
+    /* border: 2px solid black; */
+}
+#editProfileBtn{
+    background-color: #1E3A8A;;
 }
 
 #postCardContainers {
@@ -334,9 +340,12 @@
     }
 
     #postCardContainers {
-        grid-template-columns: 1fr;
+        /* grid-template-columns: 1fr;
         gap: 10px;
-        padding: 10px;
+        padding: 10px; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .postCard {
@@ -363,8 +372,22 @@
         font-size: large;
     }
 
-    .logoutBtn {
-        top: 50%;
+    #logoutBtnContainer {
+        position: absolute;
+        right: 2%;
+        top: 10%;
+        margin: 10px;
+    }
+    
+    #editProfileBtnContainer{
+        position: absolute;
+        right: 15%;
+        top: 10%;
+        margin: 10px;
+        /* border: 2px solid black; */
+    }
+    #editProfileBtn{
+        background-color: #1E3A8A;;
     }
 }
 
