@@ -81,7 +81,7 @@ body {
     border-radius: 5px;
 }
 
-.comment-form button {
+/* .comment-form button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 1em;
@@ -94,7 +94,7 @@ body {
 
 .comment-form button:hover {
     background-color: #0056b3;
-}
+} */
 
 .dateText {
     font-size: 1.2rem;
@@ -225,6 +225,70 @@ body {
     translate: 47px 47px;
     box-shadow: 5px 5px 12px #cacaca, -5px -5px 12px #ffffff;
 }
+
+/* From Uiverse.io by vinodjangid07 */ 
+.bookmarkBtn {
+    width: 130px;
+    height: 40px;
+    border-radius: 40px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: .3s;
+    overflow: hidden;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.062);
+  }
+  
+  .IconContainer {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(103, 74, 228);
+    border-radius: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    transition-duration: .3s;
+  }
+  
+  .icon {
+    border-radius: 1px;
+  }
+  
+  .text {
+    height: 100%;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(26, 26, 26);
+    z-index: 1;
+    transition-duration: .3s;
+    font-size: 1.04em;
+    font-weight: 600;
+  }
+  
+  .bookmarkBtn:hover .IconContainer {
+    width: 120px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .bookmarkBtn:hover .text {
+    transform: translate(10px);
+    width: 0;
+    font-size: 0;
+    transition-duration: .3s;
+  }
+  
+  .bookmarkBtn:active {
+    transform: scale(0.95);
+    transition-duration: .3s;
+  }
 
 
 @media (max-width: 768px) {
