@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt';
 import cloudinary from '../Services/cloudinary.js';
 import fs from 'fs';
 import sendMail from '../Services/mailService.js';
+import aj from '../Services/arcjetService.js';
 
 //Login user...
 async function loginUser(req, res) {
@@ -47,6 +48,15 @@ const signin = async (req, res, next) => {
         if (!name || !email || !password) {
             res.render('errorPage', { errorMessage: "All Fields Are Required", backUrl: "/signup" });
         } else {
+
+            //Email validation using Arcjet...
+            const decision = await aj.protect(req, {
+                email: email
+            });
+            // console.log("Arcjet decision: " , decision);
+            if(decision.isDenied()) {
+                return res.render("errorPage", { errorMessage: "Email is not exist!", backUrl: "/signup" });
+            }
 
             //Check email is already registered or not...
             const checkUser = await User.findOne({ email: email });
