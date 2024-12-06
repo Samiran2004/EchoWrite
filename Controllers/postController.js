@@ -1,7 +1,7 @@
-const JWT = require('jsonwebtoken');
-const User = require('../Models/userModel');
-const Post = require('../Models/postModel');
-const cloudinary = require('../Services/cloudinary');
+import JWT from 'jsonwebtoken';
+import User from '../Models/userModel.js';
+import Post from '../Models/postModel.js';
+import cloudinary from '../Services/cloudinary.js';
 
 const uploadPost = async (req, res) => {
     const { title, content, categories } = req.body;
@@ -102,8 +102,8 @@ const postComments = async (req, res) => {
     }
 }
 
-module.exports = {
+export {
     uploadPost,
     getPostById,
     postComments
-};
+}

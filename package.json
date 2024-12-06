@@ -3,6 +3,7 @@
   "version": "1.4.2",
   "description": "This is a blog posting application",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch server.js"
@@ -10,6 +11,7 @@
   "author": "Samiran Samanta",
   "license": "ISC",
   "dependencies": {
+    "@arcjet/node": "^1.0.0-alpha.34",
     "bad-words": "^3.0.4",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",

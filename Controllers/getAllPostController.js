@@ -1,6 +1,6 @@
-const JWT = require('jsonwebtoken');
-const Post = require('../Models/postModel');
-const User = require('../Models/userModel');
+import JWT from 'jsonwebtoken';
+import Post from '../Models/postModel.js';
+import User from '../Models/userModel.js';
 
 const randomizeData = (arr) => {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -37,6 +37,4 @@ const getAllPost = async (req, res) => {
     }
 }
 
-module.exports = {
-    getAllPost
-}
+export { getAllPost }

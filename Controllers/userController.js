@@ -1,9 +1,9 @@
-const User = require('../Models/userModel');
-const JWT = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-const cloudinary = require('../Services/cloudinary');
-const fs = require('fs');
-const sendMail = require('../Services/mailService');
+import User from '../Models/userModel.js';
+import JWT from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import cloudinary from '../Services/cloudinary.js';
+import fs from 'fs';
+import sendMail from '../Services/mailService.js';
 
 //Login user...
 async function loginUser(req, res) {
@@ -319,7 +319,15 @@ const updatePassword = async (req, res) => {
     }
 }
 
-module.exports = {
+// module.exports = {
+//     loginUser,
+//     signin,
+//     forgotPassword,
+//     showResetPasswordPage,
+//     updatePassword
+// }
+
+export {
     loginUser,
     signin,
     forgotPassword,

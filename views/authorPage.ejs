@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Nav.css">
-    <link rel="stylesheet" href="/author.css">
     <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/author.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -25,6 +25,10 @@
                         <span id="username">
                             <%=authorName%>
                         </span>
+                        <div class="loader">
+                            <h4><%= authorName.split(" ")[0]%></h4>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>

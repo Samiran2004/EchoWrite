@@ -1,5 +1,5 @@
-const JWT = require('jsonwebtoken');
-const User = require('../Models/userModel');
+import JWT from 'jsonwebtoken';
+import User from '../Models/userModel.js';
 
 function validateUserToken(token) {
     return async (req, res, next) => {
@@ -23,4 +23,4 @@ function validateUserToken(token) {
     }
 }
 
-module.exports = validateUserToken;
+export default validateUserToken;

@@ -1,5 +1,5 @@
-const Post = require("../Models/postModel");
-const User = require("../Models/userModel");
+import Post from "../Models/postModel.js";
+import User from "../Models/userModel.js";
 
 const getUserById = async (req, res) => {
     try {
@@ -24,4 +24,4 @@ const getUserById = async (req, res) => {
     }
 }
 
-module.exports = getUserById;
+export default getUserById;

@@ -1,39 +1,43 @@
-const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const figlet = require('figlet');
-const serveRoute = require('./Routes/serveRoute');
-const dbConnect = require('./Services/dbConnection');
-const cookieParser = require('cookie-parser');
-const cors = require('cors');
-const swaggerJsDocs = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
-const passport = require('passport');
-const session = require('express-session');
-const User = require('./Models/userModel');
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const JWT = require('jsonwebtoken');
-const sendMail = require('./Services/mailService');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import figlet from 'figlet';
+import serveRoute from './Routes/serveRoute.js';
+import dbConnect from './Services/dbConnection.js';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+import passport from 'passport';
+import session from 'express-session';
+import User from './Models/userModel.js';
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import JWT from 'jsonwebtoken';
+import sendMail from './Services/mailService.js';
 
 const app = express();
 
 app.use(cors());
-require('dotenv').config();
+import { config } from 'dotenv';
+config();
 
 app.use(cookieParser());
 
 // Connect with Database...
 dbConnect(process.env.DB_URI);
 
+const viewsPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'views');
+const publicPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'Public');
 // Setup view engine...
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', viewsPath);
 
 // Middlewares...
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'Public')));
+app.use(express.static(publicPath));
 
 app.use(passport.initialize());
 app.use(session(
@@ -173,7 +177,7 @@ const swaggerOptions = {
     apis: ["./Routes/*.js"]
 };
 
-const swaggerDocs = swaggerJsDocs(swaggerOptions);
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use('/', serveRoute);

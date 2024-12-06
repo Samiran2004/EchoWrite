@@ -1,6 +1,6 @@
-const User = require('../Models/userModel');
-const Post = require('../Models/postModel');
-const JWT = require('jsonwebtoken');
+import User from '../Models/userModel.js';
+import Post from '../Models/postModel.js';
+import JWT from 'jsonwebtoken';
 
 const getProfileInformation = async (req, res) => {
     const { usertoken } = req.cookies;
@@ -31,4 +31,4 @@ const getProfileInformation = async (req, res) => {
     }
 }
 
-module.exports = getProfileInformation;
+export default getProfileInformation;

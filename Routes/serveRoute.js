@@ -1,18 +1,21 @@
-const express = require('express');
-const {
-    loginUser,
-    signin,
-    forgotPassword,
-    showResetPasswordPage,
-    updatePassword
-} = require('../Controllers/userController');
-const uploader = require('../Middlewares/multerMiddleware');
-const userAuth = require('../Middlewares/userAuthenticationMiddleware');
-const customerSupport = require('../Controllers/customerSupportController');
-const getProfileInformation = require('../Controllers/profileController');
-const { uploadPost, getPostById, postComments } = require('../Controllers/postController');
-const { getAllPost } = require('../Controllers/getAllPostController');
-const getUserById = require('../Controllers/getUserByIdController');
+// const express = require('express');
+import express from 'express';
+// const {
+//     loginUser,
+//     signin,
+//     forgotPassword,
+//     showResetPasswordPage,
+//     updatePassword
+// } = require('../Controllers/userController');
+import { loginUser, signin, forgotPassword, showResetPasswordPage, updatePassword } from '../Controllers/userController.js';
+// const uploader = require('../Middlewares/multerMiddleware');
+import uploader from '../Middlewares/multerMiddleware.js';
+import userAuth from '../Middlewares/userAuthenticationMiddleware.js';
+import customerSupport from '../Controllers/customerSupportController.js';
+import getProfileInformation from '../Controllers/profileController.js';
+import { uploadPost, getPostById, postComments } from '../Controllers/postController.js'
+import { getAllPost } from '../Controllers/getAllPostController.js';
+import getUserById from '../Controllers/getUserByIdController.js';
 const router = express.Router();
 
 /**
@@ -59,7 +62,7 @@ router.post('/updatePassword', updatePassword);
 router.get('/user/post', userAuth('usertoken'), (req, res) => res.render('postPage'));
 router.get('/user/profile', userAuth('usertoken'), (req, res) => res.render('profilePage'));
 router.get('/user/getuserById/:authorId', userAuth('usertoken'), getUserById);
-router.get('/user/profile/update',userAuth('usertoken'), (req, res)=>{
+router.get('/user/profile/update', userAuth('usertoken'), (req, res) => {
     res.render('editProfilePage');
 });
 router.get('/user/profileinfo/:token', getProfileInformation);
@@ -73,4 +76,4 @@ router.get('/user/getAllPost', userAuth('usertoken'), getAllPost);
 
 router.get('/post/:postId', userAuth('usertoken'), getPostById);
 router.post('/post/comment', userAuth('usertoken'), postComments);
-module.exports = router;
+export default router;

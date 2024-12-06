@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const figlet = require('figlet');
+import mongoose from 'mongoose';
+import figlet from 'figlet';
 
 async function databaseConnect(dbUri) {
     try {
@@ -16,4 +16,4 @@ async function databaseConnect(dbUri) {
         console.log("Database connection error ❌  ❌  ❌");
     }
 }
-module.exports = databaseConnect;
+export default databaseConnect;

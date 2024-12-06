@@ -1,4 +1,5 @@
-const Support = require('../Models/customerSupportModel');
+// const Support = require('../Models/customerSupportModel');
+import Support from '../Models/customerSupportModel.js';
 
 const customerSupport = async (req, res) => {
     const { username, email, message } = req.body;
@@ -30,4 +31,4 @@ const customerSupport = async (req, res) => {
     }
 };
 
-module.exports = customerSupport;
+export default customerSupport;
