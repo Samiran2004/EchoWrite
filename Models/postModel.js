@@ -36,9 +36,9 @@ const postSchema = new mongoose.Schema({
                 type: mongoose.Schema.ObjectId,
                 ref: 'User',
             },
-            username:{
-                type:String,
-                required:true
+            username: {
+                type: String,
+                required: true
             },
             comment: {
                 type: String,
@@ -46,7 +46,8 @@ const postSchema = new mongoose.Schema({
             date: {
                 type: Date,
                 default: Date.now
-            }
+            },
+            createdAt: { type: Date, default: Date.now },
         }
     ]
 });

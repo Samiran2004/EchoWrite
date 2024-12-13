@@ -2,6 +2,7 @@ import JWT from 'jsonwebtoken';
 import User from '../Models/userModel.js';
 import Post from '../Models/postModel.js';
 import cloudinary from '../Services/cloudinary.js';
+import fs from 'fs'
 
 const uploadPost = async (req, res) => {
     const { title, content, categories } = req.body;
@@ -15,14 +16,16 @@ const uploadPost = async (req, res) => {
             const categorieArr = categories.split(",");
             if (checkUser) {
                 const postImageUrl = await cloudinary.uploader.upload(req.file.path);
+                const formattedContent = content.replace(/\n/g, '<br>');
                 await Post.create(
                     {
                         title: title,
-                        content: content,
+                        content: formattedContent,
                         authorId: checkUser._id,
                         categories: categorieArr,
                         postImage: postImageUrl.url,
-                        authorName: checkUser.name
+                        authorName: checkUser.name,
+                        createdAt: new Date(),
                     }
                 );
                 res.redirect('/');
@@ -32,6 +35,13 @@ const uploadPost = async (req, res) => {
         }
     } catch (error) {
         res.render('errorPage', { errorMessage: "Internal Server Error", backUrl: '/user/post' });
+    } finally {
+        // Clean up the local file
+        if (req.file && req.file.path) {
+            fs.unlink(req.file.path, (err) => {
+                if (err) console.error(`Failed to delete file: ${req.file.path}`);
+            });
+        }
     }
 }
 
