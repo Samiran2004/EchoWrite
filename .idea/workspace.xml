@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88ff3405-adfc-4574-9abe-8d0340c597e2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/userModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Public/author.css" beforeDir="false" afterPath="$PROJECT_DIR$/Public/author.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/serveRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/serveRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/cloudinary.js" beforeDir="false" afterPath="$PROJECT_DIR$/Services/cloudinary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/dbConnection.js" beforeDir="false" afterPath="$PROJECT_DIR$/Services/dbConnection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/mailService.js" beforeDir="false" afterPath="$PROJECT_DIR$/Services/mailService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/authorPage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/authorPage.ejs" afterDir="false" />
-    </list>
+    <list default="true" id="88ff3405-adfc-4574-9abe-8d0340c597e2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,9 +13,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2ppO1RGCJTlwvzXcvBaMmVmEBpK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,7 +26,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Backend Projects/EchoWrite",
+    "last_opened_file_path": "D:/Backend Projects/AI-Travel-Planner",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,6 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1733459334762</updated>
       <workItem from="1733459335951" duration="2134000" />
+      <workItem from="1734095717944" duration="10000" />
     </task>
     <servers />
   </component>

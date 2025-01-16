@@ -1,0 +1,39 @@
+<div id="webcrumbs">
+    <div class="w-[800px] bg-white shadow-lg rounded-lg p-12 flex flex-row space-x-10">
+        <div class="flex flex-col items-center space-y-6">
+            <div class="relative"> <img src="<%=authorImage%>" alt="User Avatar"
+                    class="w-[150px] h-[150px] rounded-full object-contain border-4 border-primary-500" />
+                <div style="background:radial-gradient(circle, rgba(148,92,225,0.15) 0%, rgba(255,255,255,0) 70%)"
+                    class="absolute inset-0 rounded-full"></div>
+            </div>
+            <div class="flex space-x-4"> <button
+                    class="bg-neutral-100 text-primary-950 text-sm py-2 px-5 rounded-full shadow-md transition-transform transform hover:scale-105">
+                    Message </button> </div>
+            <div class="flex space-x-6 mt-5"> <a href="#"
+                    class="text-primary-700 transition-transform transform hover:scale-110"> <i
+                        class="fa-brands fa-facebook"></i> </a> <a href="#"
+                    class="text-primary-700 transition-transform transform hover:scale-110"> <i
+                        class="fa-brands fa-twitter"></i> </a> <a href="#"
+                    class="text-primary-700 transition-transform transform hover:scale-110"> <i
+                        class="fa-brands fa-linkedin"></i> </a> </div>
+        </div>
+        <div class="flex-1 flex flex-col space-y-10">
+            <div class="text-left">
+                <h1 class="font-title text-2xl text-primary-950">
+                    <%=authorName%>
+                </h1>
+            </div>
+            <div>
+                <h2 class="font-semibold text-primary-950 text-lg mb-3">About</h2>
+                <p class="text-sm text-neutral-700 leading-relaxed"> Enthusiastic designer with a passion for
+                    creating intuitive user experiences. Loves to work with cross-functional teams and explore new
+                    design trends. </p>
+            </div>
+
+            <div class="flex justify-between text-center w-full">
+                <div class="flex flex-col items-center"> <strong class="text-primary-950 text-lg"
+                        id="total_projects">85</strong> <span class="text-neutral-500 text-xs">Posts</span> </div>
+            </div>
+        </div>
+    </div>
+</div>

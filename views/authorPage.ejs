@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Nav.css">
     <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/AuthorDets.css">
     <link rel="stylesheet" href="/author.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,24 +16,7 @@
 
 <body>
     <%- include('./partials/NavBar') %>
-        <div id="mainContainer">
-            <div id="profilecardContainer">
-                <div class="profilecard">
-                    <!-- <div id="profileimage"> -->
-                    <img id="profileimage" src="<%=authorImage%>" alt="">
-                    <!-- </div> -->
-                    <div class="profilecard-info">
-                        <span id="username">
-                            <%=authorName%>
-                        </span>
-                        <div class="loader">
-                            <h4><%= authorName.split(" ")[0]%></h4>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <%- include('./partials/AuthorDets') %>
         <div id="cardSection">
             <ul class="stack-cards js-stack-cards">
                 <!-- <li

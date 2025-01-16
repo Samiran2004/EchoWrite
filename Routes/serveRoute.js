@@ -16,6 +16,7 @@ import getProfileInformation from '../Controllers/profileController.js';
 import { uploadPost, getPostById, postComments } from '../Controllers/postController.js'
 import { getAllPost } from '../Controllers/getAllPostController.js';
 import getUserById from '../Controllers/getUserByIdController.js';
+import getAuthorById from '../Controllers/getAuthorById.js';
 const router = express.Router();
 
 /**
@@ -62,6 +63,7 @@ router.post('/updatePassword', updatePassword);
 router.get('/user/post', userAuth('usertoken'), (req, res) => res.render('postPage'));
 router.get('/user/profile', userAuth('usertoken'), (req, res) => res.render('profilePage'));
 router.get('/user/getuserById/:authorId', userAuth('usertoken'), getUserById);
+router.get('/user/getAuthorById/:id', getAuthorById);
 router.get('/user/profile/update', userAuth('usertoken'), (req, res) => {
     res.render('editProfilePage');
 });
