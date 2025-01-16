@@ -329,10 +329,10 @@ video {
   --tw-contain-style: ;
 }
 #webcrumbs{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     justify-content: center;
-    margin-top: 7%;
+    margin-top: 5%;
 }
 #webcrumbs .absolute {
   position: absolute;
@@ -598,4 +598,9 @@ video {
 }
 #webcrumbs .hover\:underline:hover {
   text-decoration-line: underline;
+}
+@media (max-width: 768px) {
+    #webcrumbs{
+        margin-top: 13%;
+    }
 }
