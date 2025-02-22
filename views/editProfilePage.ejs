@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Update</title>
+    <link rel="stylesheet" href="/Nav.css">
+    <link rel="stylesheet" href="/editProfile.css">
+</head>
+
+<body>
+    <%- include('./partials/NavBar') %>
+        <div id="webcrumbs">
+            <div class="w-[500px] bg-white shadow-2xl rounded-lg min-h-[600px] p-10">
+                <h1 class="text-3xl font-title text-neutral-950 mb-8">Update Your Details</h1>
+                <form class="flex flex-col gap-8" action="/user/profile/update" method="post" enctype="multipart/form-data">
+                    <div class="flex items-center gap-8">
+                        <div
+                            class="relative w-[140px] h-[140px] rounded-full overflow-hidden bg-gradient-to-b from-primary-500 to-primary-400 shadow-lg">
+                            <img id="prevImage" src="" class="w-full h-full object-contain" /> <label
+                                class="absolute bottom-2 right-2 bg-white text-primary-500 text-sm rounded-full w-[36px] h-[36px] flex items-center justify-center cursor-pointer shadow-md"
+                                for="profilePicture"> <span class="material-symbols-outlined">edit</span> </label>
+                            <input id="profilePicture" name="profilePicture" type="file" class="hidden" />
+                        </div>
+                        <div class="flex-1"> <label for="name"
+                                class="text-neutral-950 block text-sm font-semibold mb-3"> Name </label> <input
+                                type="text" id="name" name="name" placeholder="Enter your name"
+                                class="w-full border border-neutral-300 rounded-lg p-4 text-neutral-950 focus:border-primary-500 outline-none shadow-sm" />
+                        </div>
+                    </div>
+                    <div> <label for="bio" class="text-neutral-950 block text-sm font-semibold mb-3"> Bio </label>
+                        <textarea id="bio" name="bio" placeholder="Write something about yourself..." rows="6"
+                            class="w-full border border-neutral-300 rounded-lg p-4 text-neutral-950 focus:border-primary-500 outline-none shadow-sm"></textarea>
+                    </div>
+                    <div> <label for="socialLinks" class="text-neutral-950 block text-sm font-semibold mb-3"> Social
+                            Profiles </label>
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center gap-4"> <i
+                                    class="fa-brands fa-facebook text-primary-500 w-[24px] h-[24px]"></i> <input
+                                    type="url" name="fbLink" placeholder="Facebook Profile Link"
+                                    class="flex-1 border border-neutral-300 rounded-lg p-4 text-neutral-950 focus:border-primary-500 outline-none shadow-sm" />
+                            </div>
+                            <div class="flex items-center gap-4"> <i
+                                    class="fa-brands fa-twitter text-primary-500 w-[24px] h-[24px]"></i> <input
+                                    type="url" name="xLink" placeholder="Twitter Profile Link"
+                                    class="flex-1 border border-neutral-300 rounded-lg p-4 text-neutral-950 focus:border-primary-500 outline-none shadow-sm" />
+                            </div>
+                            <div class="flex items-center gap-4"> <i
+                                    class="fa-brands fa-linkedin text-primary-500 w-[24px] h-[24px]"></i> <input
+                                    type="url" name="linkdinLink" placeholder="LinkedIn Profile Link"
+                                    class="flex-1 border border-neutral-300 rounded-lg p-4 text-neutral-950 focus:border-primary-500 outline-none shadow-sm" />
+                            </div>
+                        </div>
+                    </div> <button type="submit"
+                        class="bg-gradient-to-r from-primary-500 to-primary-400 text-primary-50 text-sm font-bold px-8 py-4 rounded-full w-max self-end hover:opacity-90 shadow-lg transition-all">
+                        Save Changes </button>
+                </form>
+            </div>
+
+        </div>
+</body>
+
+<script src="/editProfile.js"></script>
+
+</html>

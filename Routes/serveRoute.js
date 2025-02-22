@@ -7,7 +7,7 @@ import express from 'express';
 //     showResetPasswordPage,
 //     updatePassword
 // } = require('../Controllers/userController');
-import { loginUser, signin, forgotPassword, showResetPasswordPage, updatePassword } from '../Controllers/userController.js';
+import { loginUser, signin, forgotPassword, showResetPasswordPage, updatePassword, updateUserDets } from '../Controllers/userController.js';
 // const uploader = require('../Middlewares/multerMiddleware');
 import uploader from '../Middlewares/multerMiddleware.js';
 import userAuth from '../Middlewares/userAuthenticationMiddleware.js';
@@ -64,9 +64,10 @@ router.get('/user/post', userAuth('usertoken'), (req, res) => res.render('postPa
 router.get('/user/profile', userAuth('usertoken'), (req, res) => res.render('profilePage'));
 router.get('/user/getuserById/:authorId', userAuth('usertoken'), getUserById);
 router.get('/user/getAuthorById/:id', getAuthorById);
-router.get('/user/profile/update', userAuth('usertoken'), (req, res) => {
+router.get('/user/profile/update', userAuth('usertoken'), uploader.single('profilePicture'), (req, res) => {
     res.render('editProfilePage');
 });
+router.post('/user/profile/update', userAuth('usertoken'), updateUserDets);
 router.get('/user/profileinfo/:token', getProfileInformation);
 // router.get('/user/profileinfo', getProfileInformation);
 router.get('/user/customersupport', userAuth('usertoken'), (req, res) => res.render('supportPage'));

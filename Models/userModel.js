@@ -29,6 +29,18 @@ const userSchema = new mongoose.Schema({
     bio: {
         type: String,
         required: false
+    },
+    facebookLink: {
+        type: String,
+        required: false
+    },
+    twitterLink: {
+        type: String,
+        required: false
+    },
+    linkdinLink: {
+        type: String,
+        required: false
     }
 }, { timestamps: true });
 

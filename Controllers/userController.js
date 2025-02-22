@@ -1,6 +1,6 @@
 import User from '../Models/userModel.js';
 import JWT from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt'
 import cloudinary from '../Services/cloudinary.js';
 import fs from 'fs';
 import sendMail from '../Services/mailService.js';
@@ -54,7 +54,7 @@ const signin = async (req, res, next) => {
                 email: email
             });
             // console.log("Arcjet decision: " , decision);
-            if(decision.isDenied()) {
+            if (decision.isDenied()) {
                 return res.render("errorPage", { errorMessage: "Email is not exist!", backUrl: "/signup" });
             }
 
@@ -329,18 +329,37 @@ const updatePassword = async (req, res) => {
     }
 }
 
-// module.exports = {
-//     loginUser,
-//     signin,
-//     forgotPassword,
-//     showResetPasswordPage,
-//     updatePassword
-// }
+//Update user dets...
+const updateUserDets = async (req, res) => {
+    try {
+        console.log(req.file);
+        console.log(req.body);
+        const { name, bio, fbLink, xLink, linkdinLink } = req.body;
+        const user = await User.findById(req.user._id);
+        console.log(user);
+        if (!user) {
+            return res.render('errorPage', { errorMessage: "User not found", backUrl: '/' });
+        }
+        if (name) user.name = name;
+        if (bio) user.bio = bio;
+        if (fbLink) user.facebookLink = fbLink;
+        if (xLink) user.twitterLink = xLink;
+        if (linkdinLink) user.linkdinLink = linkdinLink;
+        await user.save();
+        res.render('profilePage');
+    } catch (error) {
+        res.status(500).send({
+            status: "Failed",
+            message: "Internal Server Error!"
+        });
+    }
+}
 
 export {
     loginUser,
     signin,
     forgotPassword,
     showResetPasswordPage,
-    updatePassword
+    updatePassword,
+    updateUserDets
 }

@@ -11,6 +11,7 @@ function validateUserToken(token) {
                 const userPayload = JWT.verify(tokenValue, process.env.JWT_SECRET);
                 const checkUser = await User.findById(userPayload._id);
                 if (checkUser) {
+                    req.user = userPayload;
                     res.locals.user = userPayload;
                     return next();
                 } else {
