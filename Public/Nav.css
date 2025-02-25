@@ -99,6 +99,29 @@ nav{
     display: none;
 }
 
+#searchCont{
+    display: flex;
+    /* border: 2px solid red; */
+}
+
+#searchbar {
+    background-color: white;
+    height: 40px;
+    padding: 5px;
+    border-top-left-radius: 15px;
+}
+
+#searchBtn{
+    /* border: 2px solid red; */
+    background-color: white;
+    cursor: pointer;
+    border-bottom-right-radius: 15px;
+}
+#searchBtn img {
+    height: 40px;
+    width: 60px;
+}
+
 @media (max-width: 768px) {
     nav{
         padding: 0px;
