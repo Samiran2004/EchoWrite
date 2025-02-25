@@ -4,39 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Nav.css">
+    <link rel="stylesheet" href="/NewNav.css">
     <link rel="stylesheet" href="/profile.css">
     <link rel="stylesheet" href="/AuthorDets.css">
     <link rel="stylesheet" href="/author.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
     <title>Author</title>
 </head>
 
 <body>
-    <%- include('./partials/NavBar') %>
-    <%- include('./partials/AuthorDets') %>
-        <div id="cardSection">
-            <ul class="stack-cards js-stack-cards">
-                <!-- <li
+    <%- include('./partials/NewNav') %>
+        <%- include('./partials/AuthorDets') %>
+            <div id="cardSection">
+                <ul class="stack-cards js-stack-cards">
+                    <!-- <li
                     class="stack-cards__item sg0-bg-light sg0-radius-lg sg0-inner-glow sg0-shadow-md js-stack-cards__item">
                     <div class="sg0-flex sg0-flex-center">Card One</div>
                 </li> -->
-                <% authorsPost.reverse().forEach(function(postData) { %>
-                    <a href="/post/<%= postData._id %>">
-                        <li id="stackCards"
-                            class="stack-cards__item sg0-bg-light sg0-radius-lg sg0-inner-glow sg0-shadow-md js-stack-cards__item">
-                            <div class="sg0-flex sg0-flex-center">
-                                <img id="postImages" src="<%= postData.postImage %>" alt="Posts">
-                            </div>
-                        </li>
-                    </a>
-                    <% }); %>
-            </ul>
-        </div>
+                    <% authorsPost.reverse().forEach(function(postData) { %>
+                        <a href="/post/<%= postData._id %>">
+                            <li id="stackCards"
+                                class="stack-cards__item sg0-bg-light sg0-radius-lg sg0-inner-glow sg0-shadow-md js-stack-cards__item">
+                                <div class="sg0-flex sg0-flex-center">
+                                    <img id="postImages" src="<%= postData.postImage %>" alt="Posts">
+                                </div>
+                            </li>
+                        </a>
+                        <% }); %>
+                </ul>
+            </div>
 </body>
 <script src="/author.js"></script>
-<script src="/Nav.js"></script>
+<!-- <script src="/Nav.js"></script> -->
 
 </html>
