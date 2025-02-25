@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="Logo.jpg" type="image/x-icon">
     <title>Profile</title>
-    <link rel="stylesheet" href="/Nav.css">
+    <link rel="stylesheet" href="/NewNav.css">
     <link rel="stylesheet" href="/profile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,73 +14,83 @@
 </head>
 
 <body>
-    <%- include('./partials/NavBar') %>
-    <div id="mainContainer">
-        <div id="profilecardContainer">
-            <div class="profilecard">
-                <img id="profileimage" src="<%=user.profileimage%>" alt="">
-                <div class="profilecard-info">
-                    <span id="username"><%= user.username %></span>
-                    <p id="useremail"><%= user.email %></p>
+    <%- include('./partials/NewNav') %>
+        <div id="mainContainer">
+            <div id="profilecardContainer">
+                <div class="profilecard">
+                    <img id="profileimage" src="<%=user.profileimage%>" alt="">
+                    <div class="profilecard-info">
+                        <span id="username">
+                            <%= user.username %>
+                        </span>
+                        <p id="useremail">
+                            <%= user.email %>
+                        </p>
+                    </div>
+                </div>
+                <div id="aboutSection">
+                    <h2>About Me</h2>
+                    <p>Hello! I'm [Your Name], a passionate developer with a love for creating innovative solutions.
+                        With a background in [Your Background], I specialize in [Your Specialization]. When I'm not
+                        coding, you can find me [Your Hobbies].</p>
                 </div>
             </div>
-            <div id="aboutSection">
-                <h2>About Me</h2>
-                <p>Hello! I'm [Your Name], a passionate developer with a love for creating innovative solutions. With a background in [Your Background], I specialize in [Your Specialization]. When I'm not coding, you can find me [Your Hobbies].</p>
+            <div id="statsContainer">
+                <div class="stat">
+                    <h3>Total Posts</h3>
+                    <p id="postCount">0</p>
+                </div>
+                <div class="stat">
+                    <h3>Followers</h3>
+                    <p id="followersCount">0</p>
+                </div>
+                <div class="stat">
+                    <h3>Following</h3>
+                    <p id="followingCount">0</p>
+                </div>
             </div>
-        </div>
-        <div id="statsContainer">
-            <div class="stat">
-                <h3>Total Posts</h3>
-                <p id="postCount">0</p>
+            <div id="buttonContainer">
+                <div id="logoutBtnContainer">
+                    <button class="logoutBtn">
+                        <div class="sign"><svg viewBox="0 0 512 512">
+                                <path
+                                    d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="text"><a href="/logout" style="text-decoration: none; color: white;">Logout</a>
+                        </div>
+                    </button>
+                </div>
+                <div id="editProfileBtnContainer">
+                    <button id="editProfileBtn" class="logoutBtn">
+                        <div class="sign">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 17.25V21H6.75L17.81 9.94L14.06 6.19L3 17.25Z" fill="currentColor" />
+                                <path
+                                    d="M20.71 7.04C21.1 6.65 21.1 6.02 20.71 5.63L18.37 3.29C17.98 2.9 17.35 2.9 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </div>
+                        <div class="text"><a href="/user/profile/update"
+                                style="text-decoration: none; color: white;">Edit</a></div>
+                    </button>
+                </div>
             </div>
-            <div class="stat">
-                <h3>Followers</h3>
-                <p id="followersCount">0</p>
-            </div>
-            <div class="stat">
-                <h3>Following</h3>
-                <p id="followingCount">0</p>
-            </div>
-        </div>
-        <div id="buttonContainer">
-            <div id="logoutBtnContainer">
-                <button class="logoutBtn">
-                    <div class="sign"><svg viewBox="0 0 512 512">
-                            <path
-                                d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
-                            </path>
-                        </svg>
+            <div id="userPostContainer">
+                <div id="postCardContainers">
+                    <div class="profilepostcard">
+                        <span class="card__title">POST</span>
+                        <p class="card__content"></p>
+                        <form class="card__form">
+                            <a class="card__button">READ</a>
+                        </form>
                     </div>
-                    <div class="text"><a href="/logout" style="text-decoration: none; color: white;">Logout</a></div>
-                </button>
-            </div>
-            <div id="editProfileBtnContainer">
-                <button id="editProfileBtn" class="logoutBtn">
-                    <div class="sign">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 17.25V21H6.75L17.81 9.94L14.06 6.19L3 17.25Z" fill="currentColor"/>
-                            <path d="M20.71 7.04C21.1 6.65 21.1 6.02 20.71 5.63L18.37 3.29C17.98 2.9 17.35 2.9 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04Z" fill="currentColor"/>
-                        </svg>                    
-                    </div>
-                    <div class="text"><a href="/user/profile/update" style="text-decoration: none; color: white;">Edit</a></div>
-                </button>
-            </div>
-        </div>
-        <div id="userPostContainer">
-            <div id="postCardContainers">
-                <div class="profilepostcard">
-                    <span class="card__title">POST</span>
-                    <p class="card__content"></p>
-                    <form class="card__form">
-                        <a class="card__button">READ</a>
-                    </form>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="/profile.js"></script>
-    <script src="/Nav.js"></script>
+        <script src="/profile.js"></script>
+        <!-- <script src="/Nav.js"></script> -->
 </body>
 
 </html>

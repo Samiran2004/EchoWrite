@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="Logo.jpg" type="image/x-icon">
     <title>Customer-Support</title>
-    <link rel="stylesheet" href="/Nav.css">
+    <link rel="stylesheet" href="/NewNav.css">
     <link rel="stylesheet" href="/support.css">
 </head>
+
 <body>
-    <%- include('./partials/NavBar') %>
-    <div id="mainContainerSupport">
-        <div id="Customercontent">
-            <div id="text">
-                 <h1>CUSTOMER-SUPPORT</h1>
+    <%- include('./partials/NewNav') %>
+        <div id="mainContainerSupport">
+            <div id="Customercontent">
+                <div id="text">
+                    <h1>CUSTOMER-SUPPORT</h1>
+                </div>
+
+                <div id="formcontainer">
+                    <form action="/user/support" method="post">
+                        <input type="text" name="username" id="username" placeholder="Your Name" required>
+                        <input type="email" name="email" id="email" placeholder="Your Email" required>
+                        <input type="text" name="message" id="message" placeholder="Message" required>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
             </div>
-     
-            <div id="formcontainer">
-                 <form action="/user/support" method="post">
-                     <input type="text" name="username" id="username" placeholder="Your Name" required>
-                     <input type="email" name="email" id="email" placeholder="Your Email" required>
-                     <input type="text" name="message" id="message" placeholder="Message" required>
-                     <button type="submit">Submit</button>
-                 </form>
-            </div>
-         </div>
-    </div>
+        </div>
 </body>
-<script src="/Nav.js"></script>
+<!-- <script src="/Nav.js"></script> -->
+
 </html>

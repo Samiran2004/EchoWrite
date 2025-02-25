@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="Logo.jpg" type="image/x-icon">
     <link rel="icon" href="Logo.jpg" type="image/x-icon">
     <title>Post</title>
-    <link rel="stylesheet" href="/Nav.css">
+    <link rel="stylesheet" href="/NewNav.css">
     <link rel="stylesheet" href="/postPage.css">
 </head>
-<body>
-    <%- include('./partials/NavBar') %>
-    <div id="mainContainer">
-        <div id="prevImageContainer">
-            <img id="prevImage" src="">
-        </div>
-        <div id="formContainer">
-            <form action="/user/post" method="post" enctype="multipart/form-data">
-                <input type="file" name="postimage" id="postimage" required>
-                <input type="text" name="title" id="title" placeholder="Title">
-                <input type="text" name="categories" id="title" placeholder="Categories">
-                <textarea name="content" id="content" placeholder="Content"></textarea>
 
-                <button type="submit">Post</button>
-            </form>
+<body>
+    <%- include('./partials/NewNav') %>
+        <div id="mainContainer">
+            <div id="prevImageContainer">
+                <img id="prevImage" src="">
+            </div>
+            <div id="formContainer">
+                <form action="/user/post" method="post" enctype="multipart/form-data">
+                    <input type="file" name="postimage" id="postimage" required>
+                    <input type="text" name="title" id="title" placeholder="Title">
+                    <input type="text" name="categories" id="title" placeholder="Categories">
+                    <textarea name="content" id="content" placeholder="Content"></textarea>
+
+                    <button type="submit">Post</button>
+                </form>
+            </div>
         </div>
-    </div>
 </body>
 <script src="/postPage.js"></script>
-<script src="/Nav.js"></script>
+<!-- <script src="/Nav.js"></script> -->
+
 </html>

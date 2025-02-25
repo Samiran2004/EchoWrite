@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Update</title>
-    <link rel="stylesheet" href="/Nav.css">
+    <link rel="stylesheet" href="/NewNav.css">
     <link rel="stylesheet" href="/editProfile.css">
 </head>
 
 <body>
-    <%- include('./partials/NavBar') %>
+    <%- include('./partials/NewNav') %>
         <div id="webcrumbs">
             <div class="w-[500px] bg-white shadow-2xl rounded-lg min-h-[600px] p-10">
                 <h1 class="text-3xl font-title text-neutral-950 mb-8">Update Your Details</h1>
-                <form class="flex flex-col gap-8" action="/user/profile/update" method="post" enctype="multipart/form-data">
+                <form class="flex flex-col gap-8" action="/user/profile/update" method="post"
+                    enctype="multipart/form-data">
                     <div class="flex items-center gap-8">
                         <div
                             class="relative w-[140px] h-[140px] rounded-full overflow-hidden bg-gradient-to-b from-primary-500 to-primary-400 shadow-lg">
