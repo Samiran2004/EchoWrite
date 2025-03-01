@@ -67,7 +67,7 @@ router.get('/user/getAuthorById/:id', getAuthorById);
 router.get('/user/profile/update', userAuth('usertoken'), uploader.single('profilePicture'), (req, res) => {
     res.render('editProfilePage');
 });
-router.post('/user/profile/update', userAuth('usertoken'), updateUserDets);
+router.post('/user/profile/update',uploader.single('profilePicture') ,userAuth('usertoken'), updateUserDets);
 router.get('/user/profileinfo/:token', getProfileInformation);
 // router.get('/user/profileinfo', getProfileInformation);
 router.get('/user/customersupport', userAuth('usertoken'), (req, res) => res.render('supportPage'));
