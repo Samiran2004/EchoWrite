@@ -38,8 +38,8 @@ const postComment = async () => {
             body: JSON.stringify({ comment: comment })
         });
 
-        const result = await response.json();
-        console.log('Server response:', result);
+        // const result = await response.json();
+        // console.log('Server response:', result);
 
         // Refresh the page after a successful response
         if (response.ok) {

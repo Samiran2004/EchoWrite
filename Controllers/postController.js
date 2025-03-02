@@ -56,12 +56,29 @@ const getPostById = async (req, res) => {
             res.render('errorPage', { errorMessage: 'Post Not Found', backUrl: '/' });
         }
         // console.log(checkPost);
+        let postAuthor = (await checkPost.populate("authorId")).authorId;
+        console.log(postAuthor);
+        let facebookLink = "#";
+        if(postAuthor.facebookLink) {
+            facebookLink = postAuthor.facebookLink;
+        }
+        let XLink = "#";
+        if(postAuthor.twitterLink) {
+            XLink = postAuthor.twitterLink;
+        }
+        let linkdinLink = "#";
+        if(postAuthor.linkdinLink) {
+            linkdinLink = postAuthor.linkdinLink;
+        }
         const postCookie = JWT.sign({ postid: checkPost._id }, process.env.JWT_SECRET);
         res.cookie("postCookie", postCookie).render('postDetsPage', {
             postImage: checkPost.postImage,
             postTitle: checkPost.title,
             postContent: checkPost.content,
             postAuthor: (await checkPost.populate("authorId")).authorId.name,
+            facebookLink: facebookLink,
+            XLink: XLink,
+            linkdinLink: linkdinLink,
             postPublishDate: new Date(checkPost.publishdate).toDateString(),
             comment: checkPost.comments
         });

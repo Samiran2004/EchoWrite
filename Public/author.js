@@ -152,9 +152,9 @@ Util.osHasReducedMotion = function () {
 const getAuthorInfo = async () => {
   try {
     const baseURL = window.location.href;
-    console.log(baseURL);
+    // console.log(baseURL);
     const authorId = baseURL.split('/').pop();
-    console.log(authorId);
+    // console.log(authorId);
     const url = `/user/getAuthorById/${authorId}`;
     const response = await fetch(url, {
       method: "GET",
@@ -166,8 +166,21 @@ const getAuthorInfo = async () => {
       throw new Error('Network response was not ok ' + response.statusText);
     }
     const data = await response.json();
-    console.log(data);
+    // console.log(data.author);
+    document.querySelector("p.text-sm").textContent = data.author.bio;
     const total_projects = document.getElementById('total_projects');
+    if(data.author.facebookLink) {
+      let facebookLink = data.author.facebookLink;
+      document.querySelector("#fb_link").setAttribute("href", facebookLink);
+    }
+    if(data.author.twitterLink) {
+      let twitterLink = data.author.twitterLink;
+      document.querySelector("#twitter_link").setAttribute("href", twitterLink);
+    }
+    if(data.author.linkdinLink) {
+      let linkdinLink = data.author.linkdinLink;
+      document.querySelector("#linkdin_link").setAttribute("href", linkdinLink);
+    }
     total_projects.innerText = data.posts;
   } catch (error) {
     console.log("Fetch error: ", error);

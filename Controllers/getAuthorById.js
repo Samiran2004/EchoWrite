@@ -7,9 +7,11 @@ const getAuthorById = async (req, res) => {
         const posts = await Post.find({
             authorId: authorId
         })
+        const author = await User.findById(authorId);
         return res.status(200).send({
             status: "Success",
-            posts: posts.length
+            posts: posts.length,
+            author
         })
     } catch (error) {
         res.status(500).send({
