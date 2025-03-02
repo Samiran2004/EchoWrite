@@ -8,11 +8,11 @@ document.getElementById('profilePicture').addEventListener('change', function (e
         reader.readAsDataURL(file);
     }
 });
-document.querySelector('form').addEventListener('submit', function (e) {
-    const name = document.getElementById('name').value.trim();
-    const bio = document.getElementById('bio').value.trim();
-    if (!name || !bio) {
-        e.preventDefault();
-        alert('Name and Bio are required!');
-    }
-});
+// document.querySelector('form').addEventListener('submit', function (e) {
+//     const name = document.getElementById('name').value.trim();
+//     const bio = document.getElementById('bio').value.trim();
+//     if (!name || !bio) {
+//         e.preventDefault();
+//         alert('Name and Bio are required!');
+//     }
+// });
