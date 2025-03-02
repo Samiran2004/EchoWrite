@@ -238,7 +238,7 @@ function createPostCard(postData) {
     authorNameLink.href = `/user/getuserById/${postData.authorId._id}`;
     authorNameLink.className = 'articles-v3__author-name';
     authorNameLink.rel = 'author';
-    authorNameLink.innerText = postData.authorName;
+    authorNameLink.innerText = postData.authorId.name;
     authorName.appendChild(authorNameLink);
     const date = document.createElement('p');
     date.className = 'articles-v3__date';

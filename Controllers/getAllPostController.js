@@ -1,6 +1,5 @@
-import JWT from 'jsonwebtoken';
 import Post from '../Models/postModel.js';
-import User from '../Models/userModel.js';
+
 
 const randomizeData = (arr) => {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -21,6 +20,7 @@ const getAllPost = async (req, res) => {
             .limit(limit);
 
         const total = await Post.countDocuments();
+
         const randomData = randomizeData(data);
 
         res.status(200).send({

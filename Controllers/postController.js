@@ -61,7 +61,7 @@ const getPostById = async (req, res) => {
             postImage: checkPost.postImage,
             postTitle: checkPost.title,
             postContent: checkPost.content,
-            postAuthor: checkPost.authorName,
+            postAuthor: (await checkPost.populate("authorId")).authorId.name,
             postPublishDate: new Date(checkPost.publishdate).toDateString(),
             comment: checkPost.comments
         });
@@ -90,7 +90,6 @@ const postComments = async (req, res) => {
             const checkPost = await Post.findById(postPayload.postid);
             if (checkPost) {
                 const userPayload = JWT.verify(usertoken, process.env.JWT_SECRET);
-                console.log(userPayload);
                 const commentData = {
                     user: userPayload._id,
                     username: userPayload.username,

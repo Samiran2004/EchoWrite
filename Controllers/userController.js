@@ -6,6 +6,7 @@ import fs from 'fs';
 import sendMail from '../Services/mailService.js';
 import aj from '../Services/arcjetService.js';
 import checkValidSocialLinks from '../Utils/CheckValidSocialLinks.js';
+import Post from '../Models/postModel.js';
 
 //Login user...
 async function loginUser(req, res) {
@@ -333,74 +334,80 @@ const updatePassword = async (req, res) => {
 //Update user dets...
 const updateUserDets = async (req, res) => {
     try {
-      const { name, bio, fbLink, xLink, linkdinLink } = req.body;
-      const user = await User.findById(req.user._id);
-      
-      if (!user) {
-        return res.render('errorPage', { errorMessage: "User not found", backUrl: '/' });
-      }
-      
-      // Update basic information
-      if (name) user.name = name;
-      if (bio) user.bio = bio;
-      
-      // Update social links after validation
-      if (fbLink) {
-        const isValidLink = await checkValidSocialLinks(fbLink);
-        if (isValidLink) {
-          user.facebookLink = fbLink;
+        const { name, bio, fbLink, xLink, linkdinLink } = req.body;
+        const user = await User.findById(req.user._id);
+
+        if (!user) {
+            return res.render('errorPage', { errorMessage: "User not found", backUrl: '/' });
         }
-      }
-      
-      if (xLink) {
-        const isValidLink = await checkValidSocialLinks(xLink);
-        if (isValidLink) {
-          user.twitterLink = xLink;
+
+        // Update basic information
+        //   If name then update in post also...
+        if (name) {
+            console.log(user.name);
+            let posts = await Post.find({ authorName: user.name });
+            user.name = name;
+            console.log(posts);
         }
-      }
-      
-      if (linkdinLink) {
-        const isValidLink = await checkValidSocialLinks(linkdinLink);
-        if (isValidLink) {
-          user.linkdinLink = linkdinLink;
-        }
-      }
-      
-      // Handle profile image updates
-      if (req.file) {
-        // Upload new image first
-        const newProfileImage = await cloudinary.uploader.upload(req.file.path);
-        
-        // Delete old image if it exists
-        if (user.profileImage) {
-          const publicId = user.profileImage
-            .split('/')
-            .pop()
-            ?.split('.')[0];
-            
-          if (publicId) {
-            try {
-              await cloudinary.uploader.destroy(publicId);
-            } catch (error) {
-              console.error('Error deleting previous profile picture:', error);
-              // Continue with the update even if deletion fails
+        if (bio) user.bio = bio;
+
+        // Update social links after validation
+        if (fbLink) {
+            const isValidLink = await checkValidSocialLinks(fbLink);
+            if (isValidLink) {
+                user.facebookLink = fbLink;
             }
-          }
         }
-        
-        // Update the user's profile image with the new URL
-        user.profileImage = newProfileImage.url;
-      }
-      
-      // Save the user and respond
-      await user.save();
-      return res.render('profilePage');
-      
+
+        if (xLink) {
+            const isValidLink = await checkValidSocialLinks(xLink);
+            if (isValidLink) {
+                user.twitterLink = xLink;
+            }
+        }
+
+        if (linkdinLink) {
+            const isValidLink = await checkValidSocialLinks(linkdinLink);
+            if (isValidLink) {
+                user.linkdinLink = linkdinLink;
+            }
+        }
+
+        // Handle profile image updates
+        if (req.file) {
+            // Upload new image first
+            const newProfileImage = await cloudinary.uploader.upload(req.file.path);
+
+            // Delete old image if it exists
+            if (user.profileImage) {
+                const publicId = user.profileImage
+                    .split('/')
+                    .pop()
+                    ?.split('.')[0];
+
+                if (publicId) {
+                    try {
+                        await cloudinary.uploader.destroy(publicId);
+                    } catch (error) {
+                        console.error('Error deleting previous profile picture:', error);
+                        // Continue with the update even if deletion fails
+                    }
+                }
+            }
+
+            // Update the user's profile image with the new URL
+            user.profileImage = newProfileImage.url;
+        }
+
+        // Save the user and respond
+        await user.save();
+        return res.render('profilePage');
+
     } catch (error) {
-    //   console.error("Error in update profile:", error);
-      return res.render('errorPage', { errorMessage: "Failed to update profile", backUrl: '/profile' });
+        //   console.error("Error in update profile:", error);
+        return res.render('errorPage', { errorMessage: "Failed to update profile", backUrl: '/profile' });
     }
-  };
+};
 
 export {
     loginUser,
