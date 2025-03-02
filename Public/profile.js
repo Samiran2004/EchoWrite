@@ -17,6 +17,7 @@ const getUserdata = async () => {
 
         document.querySelector('#username').innerText = data.userdata.name;
         document.querySelector('#useremail').innerText = data.userdata.email;
+        document.querySelector('#userBio').innerText = data.userdata.bio;
         document.querySelector('#postCount').innerText = data.postData.length;
 
         const imgUrl = data.userdata.profileImage;

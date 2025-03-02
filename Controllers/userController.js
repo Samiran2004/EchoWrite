@@ -397,7 +397,7 @@ const updateUserDets = async (req, res) => {
       return res.render('profilePage');
       
     } catch (error) {
-      console.error("Error in update profile:", error);
+    //   console.error("Error in update profile:", error);
       return res.render('errorPage', { errorMessage: "Failed to update profile", backUrl: '/profile' });
     }
   };

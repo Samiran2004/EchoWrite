@@ -14,9 +14,10 @@ const getProfileInformation = async (req, res) => {
             const userPayload = await JWT.verify(usertoken, process.env.JWT_SECRET);
 
             const userdata = await User.findOne({ email: userPayload.email }, '-password -resetPasswordToken');
+            console.log(userdata);
             const postData = await Post.find({ authorId: userdata._id });
-            
-            
+
+
             res.status(200).send({
                 status: "Success",
                 userdata,
