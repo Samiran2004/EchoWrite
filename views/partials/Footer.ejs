@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
       --text-color: #ffffff;
@@ -15,25 +15,27 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
 
     .content {
       flex: 1;
       padding: 20px;
+      margin-bottom: var(--footer-height); /* Avoid overlap with fixed footer */
     }
 
     .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
       height: var(--footer-height);
-      position: relative;
       overflow: hidden;
       display: flex;
       align-items: center;
-      z-index: 1;
+      z-index: 1000;
       animation: colorChange 15s infinite alternate;
     }
 
-    /* Changing background colors */
     @keyframes colorChange {
       0% { background: linear-gradient(135deg, #8a2be2, #4b0082); }
       25% { background: linear-gradient(135deg, #ff6b6b, #ff8e8e); }
@@ -42,7 +44,6 @@
       100% { background: linear-gradient(135deg, #fa71cd, #c471f5); }
     }
 
-    /* Shimmering effect */
     .shimmer {
       position: absolute;
       top: 0;
@@ -58,7 +59,6 @@
       transform: skewX(-20deg);
     }
 
-    /* Floating particles */
     .particles-container {
       position: absolute;
       top: 0;
@@ -77,7 +77,6 @@
       opacity: var(--opacity);
     }
 
-    /* Footer content */
     .footer-content {
       display: flex;
       justify-content: space-between;
@@ -96,7 +95,6 @@
       overflow: hidden;
     }
 
-    /* Animated text for about */
     .about-text span {
       display: inline-block;
       animation: textWave 3s infinite ease-in-out;
@@ -119,7 +117,6 @@
       text-align: right;
     }
 
-    /* Animated text for copyright */
     .copyright span {
       display: inline-block;
       opacity: 0;
@@ -154,86 +151,71 @@
       }
     }
 
-    /* Responsive design */
     @media (max-width: 768px) {
       .footer-content {
         padding: 0 10px;
       }
-      
+
       .about-text {
         max-width: 50%;
       }
     }
   </style>
-  <title>Compact Footer with Animated Text</title>
+  <title>Sticky Animated Footer</title>
 </head>
 <body>
   <footer class="footer">
-    <!-- Shimmering effect -->
     <div class="shimmer"></div>
-    
-    <!-- Particle animation container -->
     <div class="particles-container" id="particles-container"></div>
-    
     <div class="footer-content">
-      <div class="about-text" id="about-text">
-        EchoWrite
-      </div>
-      
-      <div class="copyright" id="copyright">
-        &copy; 2025 EchoWrite
-      </div>
+      <div class="about-text" id="about-text">EchoWrite</div>
+      <div class="copyright" id="copyright">&copy; 2025 EchoWrite</div>
     </div>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Generate particles
+    document.addEventListener('DOMContentLoaded', function () {
       const container = document.getElementById('particles-container');
       const particleCount = 15;
-      
+
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
-        
+
         const size = Math.random() * 3 + 1;
         const duration = Math.random() * 3 + 3 + 's';
         const opacity = Math.random() * 0.5 + 0.2;
         const moveX = (Math.random() - 0.5) * 50;
         const moveY = (Math.random() * 0.5) * 40;
         const finalX = (Math.random() - 0.5) * 100;
-        
+
         particle.style.setProperty('--duration', duration);
         particle.style.setProperty('--opacity', opacity);
         particle.style.setProperty('--move-x', `${moveX}px`);
         particle.style.setProperty('--move-y', `${moveY}px`);
         particle.style.setProperty('--final-x', `${finalX}px`);
-        
+
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.bottom = '0';
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
-        
+
         container.appendChild(particle);
       }
-      
-      // Animate "About" text
+
       const aboutElement = document.getElementById('about-text');
       const aboutText = aboutElement.innerText;
       aboutElement.innerHTML = '';
-      
       for (let i = 0; i < aboutText.length; i++) {
         const span = document.createElement('span');
         span.innerText = aboutText[i];
         span.style.setProperty('--char-index', i);
         aboutElement.appendChild(span);
       }
-      
-      // Animate copyright text
+
       const copyrightElement = document.getElementById('copyright');
       const copyrightText = copyrightElement.innerText;
       copyrightElement.innerHTML = '';
-      
       for (let i = 0; i < copyrightText.length; i++) {
         const span = document.createElement('span');
         span.innerText = copyrightText[i];
