@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
-        
+
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +13,7 @@ body {
 
 .navbar {
     background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+    backdrop-filter: blur(50px);
     height: 70px;
     padding: 0 40px;
     display: flex;
@@ -47,13 +48,13 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, 
-        #00c3ff, 
-        #62d27c,
-        #ffdd94,
-        #ff9e9e,
-        #b96dd5,
-        #4a63ff);
+    background: linear-gradient(45deg,
+            #00c3ff,
+            #62d27c,
+            #ffdd94,
+            #ff9e9e,
+            #b96dd5,
+            #4a63ff);
     background-size: 400% 400%;
     z-index: -1;
     filter: blur(10px);
@@ -94,9 +95,9 @@ body {
 }
 
 .logo-container:hover .logo {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
-                 0 0 20px rgba(255, 255, 255, 0.5), 
-                 0 0 30px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.5),
+        0 0 30px rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
 }
 
@@ -108,7 +109,8 @@ body {
 }
 
 .logo:hover span {
-    animation: none; /* Disable default animation on hover */
+    animation: none;
+    /* Disable default animation on hover */
 }
 
 .logo:hover span:nth-child(odd) {
@@ -136,50 +138,143 @@ body {
 }
 
 /* Different animation and colors for each letter - pastel aurora color scheme */
-.logo span:nth-child(1) { animation-delay: 0.0s; color: #63f2e4; text-shadow: 0 0 5px rgba(99, 242, 228, 0.7); }
-.logo span:nth-child(2) { animation-delay: 0.1s; color: #a6f77b; text-shadow: 0 0 5px rgba(166, 247, 123, 0.7); }
-.logo span:nth-child(3) { animation-delay: 0.2s; color: #f8e475; text-shadow: 0 0 5px rgba(248, 228, 117, 0.7); }
-.logo span:nth-child(4) { animation-delay: 0.3s; color: #fbad8e; text-shadow: 0 0 5px rgba(251, 173, 142, 0.7); }
-.logo span:nth-child(5) { animation-delay: 0.4s; color: #f874d7; text-shadow: 0 0 5px rgba(237, 111, 205, 0.7); }
-.logo span:nth-child(6) { animation-delay: 0.5s; color: #d8b5ff; text-shadow: 0 0 5px rgba(179, 134, 229, 0.7); }
-.logo span:nth-child(7) { animation-delay: 0.6s; color: #a0c4ff; text-shadow: 0 0 5px rgba(160, 196, 255, 0.7); }
-.logo span:nth-child(8) { animation-delay: 0.7s; color: #90e0ef; text-shadow: 0 0 5px rgba(144, 224, 239, 0.7); }
-.logo span:nth-child(9) { animation-delay: 0.8s; color: #63f2e4; text-shadow: 0 0 5px rgba(99, 242, 228, 0.7); }
+.logo span:nth-child(1) {
+    animation-delay: 0.0s;
+    color: #63f2e4;
+    text-shadow: 0 0 5px rgba(99, 242, 228, 0.7);
+}
+
+.logo span:nth-child(2) {
+    animation-delay: 0.1s;
+    color: #a6f77b;
+    text-shadow: 0 0 5px rgba(166, 247, 123, 0.7);
+}
+
+.logo span:nth-child(3) {
+    animation-delay: 0.2s;
+    color: #f8e475;
+    text-shadow: 0 0 5px rgba(248, 228, 117, 0.7);
+}
+
+.logo span:nth-child(4) {
+    animation-delay: 0.3s;
+    color: #fbad8e;
+    text-shadow: 0 0 5px rgba(251, 173, 142, 0.7);
+}
+
+.logo span:nth-child(5) {
+    animation-delay: 0.4s;
+    color: #f874d7;
+    text-shadow: 0 0 5px rgba(237, 111, 205, 0.7);
+}
+
+.logo span:nth-child(6) {
+    animation-delay: 0.5s;
+    color: #d8b5ff;
+    text-shadow: 0 0 5px rgba(179, 134, 229, 0.7);
+}
+
+.logo span:nth-child(7) {
+    animation-delay: 0.6s;
+    color: #a0c4ff;
+    text-shadow: 0 0 5px rgba(160, 196, 255, 0.7);
+}
+
+.logo span:nth-child(8) {
+    animation-delay: 0.7s;
+    color: #90e0ef;
+    text-shadow: 0 0 5px rgba(144, 224, 239, 0.7);
+}
+
+.logo span:nth-child(9) {
+    animation-delay: 0.8s;
+    color: #63f2e4;
+    text-shadow: 0 0 5px rgba(99, 242, 228, 0.7);
+}
 
 /* Animation keyframes */
 @keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.2; }
-    50% { transform: scale(1.2); opacity: 0.4; }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.4;
+    }
 }
 
 @keyframes floatUp {
-    0% { transform: translateY(0) rotate(0deg) translateZ(0); }
-    100% { transform: translateY(-5px) rotate(5deg) translateZ(20px); }
+    0% {
+        transform: translateY(0) rotate(0deg) translateZ(0);
+    }
+
+    100% {
+        transform: translateY(-5px) rotate(5deg) translateZ(20px);
+    }
 }
 
 @keyframes floatDown {
-    0% { transform: translateY(0) rotate(0deg) translateZ(0); }
-    100% { transform: translateY(5px) rotate(-5deg) translateZ(20px); }
+    0% {
+        transform: translateY(0) rotate(0deg) translateZ(0);
+    }
+
+    100% {
+        transform: translateY(5px) rotate(-5deg) translateZ(20px);
+    }
 }
 
 @keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
 }
 
 @keyframes shimmer {
-    0% { background-position: -100% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+        background-position: -100% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
 }
 
 .nav-links {
@@ -269,16 +364,16 @@ body {
         transition: transform 0.5s ease-in;
         padding-top: 20px;
     }
-    
+
     .nav-links.active {
         transform: translateX(0%);
     }
-    
+
     .nav-links li {
         margin: 15px 0;
         opacity: 0;
     }
-    
+
     .hamburger {
         display: block;
     }
@@ -289,6 +384,7 @@ body {
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0px);
